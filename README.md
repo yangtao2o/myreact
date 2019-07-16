@@ -1,6 +1,6 @@
 # React
 ## Learn
-* 学习阮一峰老师的《React 入门实例教程》的练习 [Demo](https://github.com/yangtao2o/myreact/demo/)
+* 学习阮一峰老师的《React 入门实例教程》的练习 [DEMO](./demo/README.md)
 
 ## Project
 * [学习「井字游戏」](./product/01-ttt/README.md)

@@ -51,3 +51,37 @@ ReactDOM.render(
   document.getElementById("example")
 );
 ```
+
+### Demo04: this.props.children
+
+[Demo](https://istaotao.com/myreact/demo/04/) / [Source](https://github.com/yangtao2o/myreact/blob/master/demo/04/index.html)
+
+`this.props` 对象的属性与组件的属性一一对应，但是有一个例外，就是 `this.props.children` 属性。
+
+ps: 注意大小写 `React.Children`、`React.Component`
+
+```javascript
+class NotesList extends React.Component {
+  render() {
+    return (
+      <ol>
+        {React.Children.map(this.props.children, function(child) {
+          return <li>{child}</li>;
+        })}
+      </ol>
+    );
+  }
+}
+ReactDOM.render(
+  <NotesList>
+    <span>Hello</span>
+    <span>World</span>
+    <span>React</span>
+  </NotesList>,
+  document.getElementById("example")
+);
+```
+
+### Demo05: PropTypes
+
+[Demo](https://istaotao.com/myreact/demo/05/) / [Source](https://github.com/yangtao2o/myreact/blob/master/demo/05/index.html)
