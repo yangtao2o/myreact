@@ -7,7 +7,7 @@
 
 ### Demo01: Render JSX
 
-[Demo](https://github.com/yangtao2o/myreact/demo/01/) / [Source](https://github.com/yangtao2o/myreact/demo/01/index.html)
+[Demo](https://istaotao.com/myreact/demo/01/) / [Source](https://github.com/yangtao2o/myreact/blob/master/demo/01/index.html)
 
 初始化咱先 Hello 一下，使用 jsx 语法，碰到代码块使用（{ }）包起来，碰到 html 标签，就使用（< />）:
 
@@ -25,7 +25,7 @@ ReactDOM.render(
 
 ### Demo02: Use Array in JSX
 
-[Demo](https://github.com/yangtao2o/myreact/demo/02/) / [Source](https://github.com/yangtao2o/myreact/demo/02/index.html)
+[Demo](https://istaotao.com/myreact/demo/02/) / [Source](https://github.com/yangtao2o/myreact/blob/master/demo/02/index.html)
 
 如果 JavaScript 的变量是个数组，会展开这个数组的所有项.
 
@@ -36,7 +36,7 @@ ReactDOM.render(<div>{arr}</div>, document.getElementById("example"));
 
 ### Demo03: Component
 
-[Demo](https://github.com/yangtao2o/myreact/demo/03/) / [Source](https://github.com/yangtao2o/myreact/demo/03/index.html)
+[Demo](https://istaotao.com/myreact/demo/03/) / [Source](https://github.com/yangtao2o/myreact/blob/master/demo/03/index.html)
 
 变量 HelloMsg 是一个组件类。模板插入 <HelloMsg /> 时，会自动生成 HelloMsg 的一个实例。所有组件类都必须有自己的 render 方法，用于输出组件。
 
