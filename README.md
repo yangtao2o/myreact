@@ -1,9 +1,9 @@
 # React
 ## Learn
-* 学习阮一峰老师的《React 入门实例教程》的练习 [DEMO](./demo/README.md)
+* 学习阮一峰老师的《React 入门实例教程》的练习 [DEMO](./demo/)
 
 ## Project
-* [学习「井字游戏」](./product/01-ttt/README.md)
+* [学习「井字游戏」](./product/01-ttt/)
 
 ## Learning materials
 * [ ] [《React与webpack》](https://typescript.bootcss.com/tutorials/react-&-webpack.html)

@@ -1,4 +1,4 @@
-## 学习 React 的 Demo
+## 入门学习 React 的一些 练习Demo
 
 ### 资料
 
