@@ -1,0 +1,31 @@
+{
+  "name": "myreact",
+  "version": "1.0.0",
+  "description": "学习react的点点滴滴",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack-dev-server --open --config webpack.config.js --mode=development"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yangtao2o/myreact.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yangtao2o/myreact/issues"
+  },
+  "homepage": "https://github.com/yangtao2o/myreact#readme",
+  "devDependencies": {
+    "@babel/core": "^7.5.4",
+    "@babel/preset-env": "^7.5.4",
+    "babel": "^6.23.0",
+    "babel-loader": "^8.0.6",
+    "css-loader": "^3.0.0",
+    "react": "^16.8.6",
+    "style-loader": "^0.23.1",
+    "webpack": "^4.35.3",
+    "webpack-cli": "^3.3.6",
+    "webpack-dev-server": "^3.7.2"
+  }
+}
