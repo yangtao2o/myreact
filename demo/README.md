@@ -1,11 +1,16 @@
-## 入门学习 React 的一些 练习Demo
+## 入门学习 React 的一些 练习 Demo
 
 ### 资料
 
 - [React 入门实例教程](http://www.ruanyifeng.com/blog/2015/03/react.html) --- 阮一峰
 - [react-demos](https://github.com/ruanyf/react-demos)
 
-### Demo01: Render JSX
+> 练习 demo 都是引入资源的练习方式，有两点需要注意：
+>
+> 1. 注意引入文件的顺序及所需的几个文件
+> 2. 不要忘记`<script type="text/babel"></script>`的 type 属性，不然会报错，比如：`Uncaught SyntaxError: Unexpected token <`等
+
+### Demo01: ReactDOM.render()
 
 [Demo](https://istaotao.com/myreact/demo/01/) / [Source](https://github.com/yangtao2o/myreact/blob/master/demo/01/index.html)
 
@@ -34,7 +39,7 @@ var arr = [<h1 key="h1">Hello,</h1>, <h2 key="h2">React is awesome!</h2>];
 ReactDOM.render(<div>{arr}</div>, document.getElementById("example"));
 ```
 
-### Demo03: Component
+### Demo03: 组件
 
 [Demo](https://istaotao.com/myreact/demo/03/) / [Source](https://github.com/yangtao2o/myreact/blob/master/demo/03/index.html)
 
@@ -85,3 +90,133 @@ ReactDOM.render(
 ### Demo05: PropTypes
 
 [Demo](https://istaotao.com/myreact/demo/05/) / [Source](https://github.com/yangtao2o/myreact/blob/master/demo/05/index.html)
+
+- [使用 PropTypes 进行类型检查](https://react.docschina.org/docs/typechecking-with-proptypes.html)
+
+React 内置了一些类型检查的功能。要在组件的 props 上进行类型检查，你只需配置特定的 propTypes 属性:
+
+```javascript
+var data = {
+  tilte: "Hello",
+  age: 19,
+  isStudent: true
+};
+class MyTitle extends React.Component {
+  static propTypes = {
+    tilte: PropTypes.string,
+    age: PropTypes.number,
+    isStudent: PropTypes.bool
+  };
+  render() {
+    return (
+      <div>
+        <h1>{this.props.data.tilte}</h1>
+        <h2>{this.props.data.age}</h2>
+        <h3>{this.props.data.isStudent ? "Yes" : "No"}</h3>
+      </div>
+    );
+  }
+}
+ReactDOM.render(<MyTitle data={data} />, document.getElementById("root"));
+```
+
+还可以通过配置特定的 defaultProps 属性来定义 props 的默认值：
+
+```javascript
+class DefaultTitle extends React.Component {
+  render() {
+    return <h4>{this.props.title}</h4>;
+  }
+}
+//指定 props 的默认值：
+DefaultTitle.defaultProps = {
+  title: "Hello React!"
+};
+
+ReactDOM.render(<DefaultTitle />, document.getElementById("root2"));
+```
+
+### Demo06: 获取真实的DOM节点
+
+[Demo](https://istaotao.com/myreact/demo/06/) / [Source](https://github.com/yangtao2o/myreact/blob/master/demo/06/index.html)
+
+- [Refs and the DOM](https://zh-hans.reactjs.org/docs/refs-and-the-dom.html)
+
+Refs 提供了一种方式，允许我们访问 DOM 节点或在 render 方法中创建的 React 元素。
+
+- 创建 Refs: Refs 是由`React.createRef()`创建的，并通过 ref 属性附加到 React 元素（比如 input）
+- 访问 Refs: 当 ref 被传递给 render 中的元素时，对该节点的引用可以在 ref 的 current 属性中被访问，`this.myTextFocus.current.focus();`
+
+**_你不能在函数组件上使用 ref 属性，因为它们没有实例_**
+
+组件 MyComponent 的子节点有一个文本输入框，用于获取用户的输入。这时就必须获取真实的 DOM 节点，虚拟 DOM 是拿不到用户输入的。
+
+```javascript
+class MyComponent extends React.Component {
+  constructor(props) {
+    super(props);
+    // 创建一个 ref 来存储 myTextFocus 的 DOM 元素
+    this.myTextFocus = React.createRef();
+    this.handerClick = this.handerClick.bind(this);
+  }
+  handerClick() {
+    // 直接使用原生 API 使 text 输入框获得焦点
+    // 通过 "current" 来访问 DOM 节点
+    this.myTextFocus.current.focus();
+  }
+  render() {
+    // 告诉 React 我们想把 <input> ref 关联到
+    // 构造器里创建的 `myTextFocus` 上
+    return (
+      <div>
+        <input type="text" ref={this.myTextFocus} />
+        <input type="button" value="点击聚焦" onClick={this.handerClick} />
+      </div>
+    );
+  }
+}
+ReactDOM.render(<MyComponent />, document.getElementById("root"));
+```
+
+### Demo07: this.state
+
+[Demo](https://istaotao.com/myreact/demo/07/) / [Source](https://github.com/yangtao2o/myreact/blob/master/demo/07/index.html)
+
+- [State & 生命周期](https://zh-hans.reactjs.org/docs/state-and-lifecycle.html)
+
+学习如何封装真正可复用的 Clock 组件。它将设置自己的计时器并每秒更新一次。
+
+```javascript
+class Clock extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { date: new Date() };  //为 this.state 赋初值
+  }
+
+  componentDidMount() {
+    // Clock初次被渲染到DOM时，为其挂载一个计时器
+    this.timerID = setInterval(() => this.tick(), 1000);
+  }
+
+  componentWillUnmount() {
+    // Clock被删除时，卸载其计时器
+    clearInterval(this.timerID);
+  }
+
+  tick() {
+    // 使用 this.setState() 来时刻更新组件 state
+    this.setState({ date: new Date() });
+  }
+
+  render() {
+    return (
+      <div>
+        <h1>Hello, React!</h1>
+        <h2>现在是北京时间：{this.state.date.toLocaleTimeString()}</h2>
+      </div>
+    );
+  }
+}
+
+ReactDOM.render(<Clock />, document.getElementById("root"));
+```

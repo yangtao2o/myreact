@@ -9,14 +9,62 @@
   <script src="https://cdn.staticfile.org/react/16.4.0/umd/react.development.js"></script>
   <script src="https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js"></script>
   <script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+  <script src="https://cdn.bootcss.com/prop-types/15.7.2/prop-types.min.js"></script>
 </head>
  
 <body>
+  <p>
+    <pre>注意：
+      自 React v15.5 起，React.PropTypes 已移入另一个包中。请使用 prop-types 库 代替。
+      <a href="https://react.docschina.org/docs/typechecking-with-proptypes.html">使用 PropTypes 进行类型检查</a>
+    </pre>
+  </p>
   <div id="root"></div>
+  <div id="root2"></div>
   <script type="text/babel">
+    var data = {
+      tilte: 'Hello',
+      age: 19,
+      isStudent: true,
+    };
+    
+    class MyTitle extends React.Component {
+      static propTypes = {
+        tilte: PropTypes.string,
+        age: PropTypes.number,
+        isStudent: PropTypes.bool,
+      }
+      render() {
+        return (
+          <div>
+            <h1>{this.props.data.tilte}</h1>
+            <h2>{this.props.data.age}</h2>
+            <h3>{this.props.data.isStudent ? 'Yes' : 'No'}</h3>
+          </div>
+        );
+      }
+    }
+    ReactDOM.render(
+      <MyTitle data={data} />,
+      document.getElementById('root')
+    )
 
-
-  </script>
+    class DefaultTitle extends React.Component {
+      constructor(props) {
+        super(props);
+      }
+      static defaultProps = {
+        title: 'Hello React!',
+      }
+      render() {
+        return <h4>{this.props.title}</h4>;
+      }
+    }
+    ReactDOM.render(
+      <DefaultTitle />,
+      document.getElementById('root2')
+    )
+</script>
 </body>
 
 </html>
