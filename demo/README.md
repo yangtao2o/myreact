@@ -136,7 +136,7 @@ DefaultTitle.defaultProps = {
 ReactDOM.render(<DefaultTitle />, document.getElementById("root2"));
 ```
 
-### Demo06: 获取真实的DOM节点
+### Demo06: 获取真实的 DOM 节点
 
 [Demo](https://istaotao.com/myreact/demo/06/) / [Source](https://github.com/yangtao2o/myreact/blob/master/demo/06/index.html)
 
@@ -190,7 +190,7 @@ ReactDOM.render(<MyComponent />, document.getElementById("root"));
 class Clock extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { date: new Date() };  //为 this.state 赋初值
+    this.state = { date: new Date() }; //为 this.state 赋初值
   }
 
   componentDidMount() {
@@ -220,3 +220,92 @@ class Clock extends React.Component {
 
 ReactDOM.render(<Clock />, document.getElementById("root"));
 ```
+
+### Demo08: 表单
+
+[Demo](https://istaotao.com/myreact/demo/08/) / [Source](https://github.com/yangtao2o/myreact/blob/master/demo/08/index.html)
+
+- [表单](https://zh-hans.reactjs.org/docs/forms.html)
+
+受控组件：渲染表单的 React 组件还控制着用户输入过程中表单发生的操作，被 React 以这种方式控制取值的表单输入元素就叫做“受控组件”。
+
+即：表单数据是由 React 组件来管理的。
+
+```javascript
+class NameForm extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      // 唯一数据源
+      value: ""
+    };
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+  handleChange(event) {
+    this.setState({
+      value: event.target.value // 显示的值将随着用户输入而更新
+    });
+  }
+  handleSubmit(event) {
+    if (this.state.value) {
+      alert("接受到的name值是：" + this.state.value);
+    }
+    event.preventDefault();
+  }
+  render() {
+    return (
+      <form onSubmit={this.handleSubmit}>
+        <input
+          type="text"
+          value={this.state.value}
+          onChange={this.handleChange}
+        />
+        <input type="submit" value="提交" />
+      </form>
+    );
+  }
+}
+
+ReactDOM.render(<NameForm />, document.getElementById("root"));
+```
+
+[非受控组件](https://zh-hans.reactjs.org/docs/uncontrolled-components.html)：表单数据将交由 DOM 节点来处理，即使用 ref 来从 DOM 节点中获取表单数据
+
+[Demo](https://istaotao.com/myreact/demo/09/) / [Source](https://github.com/yangtao2o/myreact/blob/master/demo/09/index.html)
+
+```javascript
+class NameForm extends React.Component {
+  constructor(props) {
+    super(props);
+    this.input = React.createRef();
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+  handleSubmit(event) {
+    alert("接受到的name值是：" + this.input.current.value);
+    event.preventDefault();
+  }
+  render() {
+    return (
+      <form onSubmit={this.handleSubmit}>
+        <input type="text" ref={this.input} />
+        <input type="submit" value="提交" />
+      </form>
+    );
+  }
+}
+
+ReactDOM.render(<NameForm />, document.getElementById("root"));
+```
+
+### Demo09: 组件的生命周期
+
+[Demo](https://istaotao.com/myreact/demo/10/) / [Source](https://github.com/yangtao2o/myreact/blob/master/demo/10/index.html)
+
+* [React的生命周期](https://www.yuque.com/ant-design/course/lifemethods) --- Ant Design 语雀
+* [组件的生命周期](https://zh-hans.reactjs.org/docs/react-component.html)
+* [生命周期图谱速查表](http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/)
+
+### Demo10: 
+
+[Demo](https://istaotao.com/myreact/demo/11/) / [Source](https://github.com/yangtao2o/myreact/blob/master/demo/11/index.html)
