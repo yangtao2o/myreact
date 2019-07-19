@@ -3,19 +3,87 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Hello </title>
+  <title>Most Popular JavaScript Projects in Github</title>
+  <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="main.css">
   <script src="https://cdn.staticfile.org/react/16.4.0/umd/react.development.js"></script>
   <script src="https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js"></script>
   <script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+  <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
 </head>
 
 <body>
   <div id="root"></div>
 
   <script type="text/babel">
-  
+    class ReportList extends React.Component {
+      constructor(props) {
+        super(props);
+        this.state = {
+          loading: true,
+          data: null,
+          error: null,
+          date: new Date(),
+        };
+        this.getKB = this.getKB.bind(this);
+      }
+      componentDidMount() {
+        this.props.promise.then(
+          value => this.setState({loading: false, data: value}),
+          error => this.setState({loading: false, error: error})
+        );
+        this.timerID = setInterval(() => this.tick(), 1000);
+      }
+      componentWillUnmount() {
+        clearInterval(this.timerID);
+      }
+      tick() {
+        this.setState({ date: new Date() });
+      }
+      getKB(target) {
+        return Math.ceil(target / 1000) + 'k';
+      }
+      render() {
+        if(this.state.loading) {
+          return <div className="container"><h1 className="text-center">Loading...</h1></div>;
+        } else if(this.state.error) {
+          return <div className="container">呀，出错了：{this.state.error.message}</div>;
+        } else {
+          const items = this.state.data.items;
+          const lists = items.map((item, index) => {
+            const star = this.getKB(item.stargazers_count);
+            const fork = this.getKB(item.forks);
+            return (
+              <li key={index}>
+                <div className="media">
+                  <div className="ranking mr-3">{index + 1}</div>
+                  <div className="media-body">
+                    <h4 className="title mt-0"><a href={item.html_url}>{item.name}</a></h4>
+                    <p className="desc">{item.description}</p>
+                  </div>
+                  <div className="icon ml-3 text-right">{star} <img src="./icon-star.svg" /><br />{fork} <img src="./icon-fork.svg" /></div>
+                </div>
+               </li>
+            );
+          });
+
+          return (
+            <div className="container">
+              <h1 className="display-6">Most Popular JavaScript Projects in Github</h1>
+              <div className="date-wrap text-center">{this.state.date.toLocaleTimeString()}</div>
+              <ul className="items-wrap">{lists}</ul>
+            </div>
+          )
+        }
+      }
+    }
+    ReactDOM.render(
+      <ReportList promise={$.getJSON('https://api.github.com/search/repositories?q=javascript&sort=stars')}/>,
+      document.getElementById('root')
+    );
   </script>
 </body>
 
