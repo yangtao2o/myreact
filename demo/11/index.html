@@ -26,7 +26,6 @@
           loading: true,
           data: null,
           error: null,
-          date: new Date(),
         };
         this.getKB = this.getKB.bind(this);
       }
@@ -35,13 +34,6 @@
           value => this.setState({loading: false, data: value}),
           error => this.setState({loading: false, error: error})
         );
-        this.timerID = setInterval(() => this.tick(), 1000);
-      }
-      componentWillUnmount() {
-        clearInterval(this.timerID);
-      }
-      tick() {
-        this.setState({ date: new Date() });
       }
       getKB(target) {
         return Math.ceil(target / 1000) + 'k';
@@ -73,11 +65,29 @@
           return (
             <div className="container">
               <h1 className="display-6">Most Popular JavaScript Projects in Github</h1>
-              <div className="date-wrap text-center">{this.state.date.toLocaleTimeString()}</div>
+              <div className="date-wrap text-center"><Clock /></div>
               <ul className="items-wrap">{lists}</ul>
             </div>
           )
         }
+      }
+    }
+    class Clock extends React.Component {
+      constructor(props) {
+        super(props);
+        this.state = { date: new Date() };
+      }
+      componentDidMount() {
+        this.timerID = setInterval(() => this.tick(), 1000);
+      }
+      componentWillUnmount() {
+        clearInterval(this.timerID);
+      }
+      tick() {
+        this.setState({ date: new Date() })
+      }
+      render() {
+        return <span>{this.state.date.toLocaleTimeString()}</span>;
       }
     }
     ReactDOM.render(

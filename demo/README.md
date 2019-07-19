@@ -389,7 +389,7 @@ class Hello extends React.Component {
 ReactDOM.render(<Hello name="React" />, document.getElementById("root"));
 ```
 
-### Demo10:
+### Demo10: 使用 Promise 获取 Github 的数据
 
 [Demo](https://istaotao.com/myreact/demo/11/) / [Source](https://github.com/yangtao2o/myreact/blob/master/demo/11/index.html)
 
