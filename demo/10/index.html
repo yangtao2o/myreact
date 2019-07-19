@@ -15,7 +15,46 @@
   <div id="root"></div>
 
   <script type="text/babel">
-   
+    class Hello extends React.Component {
+      constructor(props) {
+        super(props);
+        this.state = {
+          fontSize: 12,
+          opacity: .01,
+        }
+      }
+      componentDidMount() {
+        this.timerID = setInterval(() => {
+          let opacity = this.state.opacity;
+          let fontSize = this.state.fontSize;
+          opacity += .02;
+          fontSize += 1;
+          if(opacity >= 1) {
+            opacity = 0.01;
+          }
+          if(fontSize >= 63) {
+            fontSize = 12;
+          }
+          this.setState({
+            fontSize,
+            opacity,
+          })
+        }, 100);
+      }
+      componentWillUnmount() {
+        clearInterval(this.timerID);
+      }
+      render() {
+        return (
+          <h1 style={{opacity: this.state.opacity, fontSize: this.state.fontSize}}>Hello, {this.props.name}</h1>
+        )
+      }
+      
+    }
+    ReactDOM.render(
+      <Hello name="React" />,
+      document.getElementById('root')
+    );
   </script>
 </body>
 

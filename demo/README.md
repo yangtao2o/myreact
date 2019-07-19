@@ -302,10 +302,93 @@ ReactDOM.render(<NameForm />, document.getElementById("root"));
 
 [Demo](https://istaotao.com/myreact/demo/10/) / [Source](https://github.com/yangtao2o/myreact/blob/master/demo/10/index.html)
 
-* [React的生命周期](https://www.yuque.com/ant-design/course/lifemethods) --- Ant Design 语雀
-* [组件的生命周期](https://zh-hans.reactjs.org/docs/react-component.html)
-* [生命周期图谱速查表](http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/)
+- [组件的生命周期](https://zh-hans.reactjs.org/docs/react-component.html)
+- [生命周期图谱速查表](http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/)
+- [React 的生命周期](https://www.yuque.com/ant-design/course/lifemethods) --- Ant Design 语雀
 
-### Demo10: 
+主要路线顺序：挂载 - 更新 - 卸载 - 错误处理
+
+#### 挂载
+
+当组件实例被创建并插入 DOM 中时，其生命周期调用如下：
+
+- consctructor() --- React 组件的构造函数，不初始化 state 或不进行方法绑定，则不需要
+- static getDerivedStateFromProps() --- 不常用
+- render() --- 唯一必须实现的方法，并且应该是纯函数
+- componentDidMount() --- 依赖于 DOM 节点的初始化应该在这里
+
+#### 更新
+
+当组件的 props 或 state 发生变化时，会触发更新：
+
+- static getDerivedStateFromProps()
+- shouldComponentUpdate()
+- render()
+- getSnapshotBeforeUpdate() --- 不常用
+- componentDidUpdate() --- 在更新后会被立即调用
+
+#### 卸载
+
+当组件从 DOM 中移除时：
+
+- componentWillUnmount() --- 会在组件卸载及销毁之前直接调用
+
+#### 错误处理
+
+当渲染过程，生命周期，或子组件的构造函数中抛出错误时：
+
+- static getDerivedStateFromError()
+- componentDidCatch()
+
+过期的生命周期方法：
+
+- UNSAFE_componentWillMount() --- 挂载前调用，目前使用 constructor()初始化 state
+- UNSAFE_componentWillReceiveProps()
+- UNSAFE_componentWillUpdate()
+
+```javascript
+class Hello extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      fontSize: 12,
+      opacity: 0.01
+    };
+  }
+  componentDidMount() {
+    this.timerID = setInterval(() => {
+      let opacity = this.state.opacity;
+      let fontSize = this.state.fontSize;
+      opacity += 0.02;
+      fontSize += 1;
+      if (opacity >= 1) {
+        opacity = 0.01;
+      }
+      if (fontSize >= 63) {
+        fontSize = 12;
+      }
+      this.setState({
+        fontSize,
+        opacity
+      });
+    }, 100);
+  }
+  componentWillUnmount() {
+    clearInterval(this.timerID);
+  }
+  render() {
+    return (
+      <h1
+        style={{ opacity: this.state.opacity, fontSize: this.state.fontSize }}
+      >
+        Hello, {this.props.name}
+      </h1>
+    );
+  }
+}
+ReactDOM.render(<Hello name="React" />, document.getElementById("root"));
+```
+
+### Demo10:
 
 [Demo](https://istaotao.com/myreact/demo/11/) / [Source](https://github.com/yangtao2o/myreact/blob/master/demo/11/index.html)
