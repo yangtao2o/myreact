@@ -392,3 +392,23 @@ ReactDOM.render(<Hello name="React" />, document.getElementById("root"));
 ### Demo10:
 
 [Demo](https://istaotao.com/myreact/demo/11/) / [Source](https://github.com/yangtao2o/myreact/blob/master/demo/11/index.html)
+
+```javascript
+ReactDOM.render(
+  <ReportList
+    promise={$.getJSON(
+      "https://api.github.com/search/repositories?q=javascript&sort=stars"
+    )}
+  />,
+  document.getElementById("root")
+);
+```
+从 Github 的 API 抓取数据，然后将 Promise 对象作为属性，传给 ReportList 组件。
+
+如果 Promise 对象正在抓取数据（pending 状态），组件显示"loading..."；
+
+如果 Promise 对象报错（rejected 状态），组件显示报错信息；
+
+如果 Promise 对象抓取数据成功（fulfilled 状态），组件显示获取的数据。
+
+[在这里查看完整Demo](https://istaotao.com/myreact/demo/11/)/[源码](https://github.com/yangtao2o/myreact/blob/master/demo/11/index.html)
