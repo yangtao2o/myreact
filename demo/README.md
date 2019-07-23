@@ -1,14 +1,14 @@
-## 入门学习 React 的一些 练习 Demo
-
-### 资料
-
-- [React 入门实例教程](http://www.ruanyifeng.com/blog/2015/03/react.html) --- 阮一峰
-- [react-demos](https://github.com/ruanyf/react-demos)
+## React 从入门到进阶的一些 Demo
 
 > 练习 demo 都是引入资源的练习方式，有两点需要注意：
 >
 > 1. 注意引入文件的顺序及所需的几个文件
 > 2. 不要忘记`<script type="text/babel"></script>`的 type 属性，不然会报错，比如：`Uncaught SyntaxError: Unexpected token <`等
+
+## 学习资料
+
+- [React 入门实例教程](http://www.ruanyifeng.com/blog/2015/03/react.html) --- 阮一峰
+- [react-demos](https://github.com/ruanyf/react-demos)
 
 ## 示例目录
 

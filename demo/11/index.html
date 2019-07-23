@@ -78,27 +78,22 @@
     class TodoForm extends React.Component {
       constructor(props) {
         super(props);
-        this.state = { text: '' }
-        this.handleChange = this.handleChange.bind(this);
+        this.text = React.createRef();
         this.handleSubmit = this.handleSubmit.bind(this);
       }
-
-      handleChange(e) {
-        this.setState({ text: e.target.value })
-      }
-
       handleSubmit(e) {
         e.preventDefault();
-        if(!this.state.text) {
+        if(!this.text.current.value) {
           return;
         }
-        this.props.addItem({text: this.state.text})
-        this.setState({text: ''})
+        this.props.addItem({text: this.text.current.value})
+        this.text.current.value = '';
+        
       }
       render() {
         return (
           <form onSubmit={this.handleSubmit}>
-            <input onChange={this.handleChange}  className="form-control form-control-lg" type="text" value={this.state.text} placeholder="如：今天我要吃大盘鸡" />
+            <input ref={this.text} className="form-control form-control-lg" type="text" placeholder="如：今天我要吃大盘鸡" />
             <div className="mt-3 text-center">
               <button type="submit" className="btn btn-primary">Add #{this.props.items.length + 1}</button>  
             </div>
