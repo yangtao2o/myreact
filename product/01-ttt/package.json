@@ -2,6 +2,7 @@
   "name": "myreact",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://istaotao.com/myreact/product/01-ttt/",
   "dependencies": {
     "react": "^16.8.3",
     "react-dom": "^16.8.3",

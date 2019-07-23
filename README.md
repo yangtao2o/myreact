@@ -4,17 +4,17 @@
 
 #### 学习阮一峰老师的《React 入门实例教程》的练习 [DEMO](./demo/)，比如：
 
-1. [ReactDOM.render()](https://istaotao.com/myreact/demo/01/)
-1. [Use Array in JSX](https://istaotao.com/myreact/demo/02/)
-1. [组件](https://istaotao.com/myreact/demo/03/)
-1. [this.props.children](https://istaotao.com/myreact/demo/04/)
-1. [PropTypes](https://istaotao.com/myreact/demo/05/)
-1. [获取真实的 DOM 节点](https://istaotao.com/myreact/demo/06/)
-1. [this.state](https://istaotao.com/myreact/demo/07/)
-1. [表单](https://istaotao.com/myreact/demo/08/)
-1. [组件的生命周期](https://istaotao.com/myreact/demo/09/)
-1. [使用 Promise 获取 Github 的数据](https://istaotao.com/myreact/demo/10/)
-1. [Todo List](https://istaotao.com/myreact/demo/11/)
+1. [ReactDOM.render()](https://github.com/yangtao2o/myreact/blob/master/demo/01/index.html)
+1. [Use Array in JSX](https://github.com/yangtao2o/myreact/blob/master/demo/02/index.html)
+1. [组件](https://github.com/yangtao2o/myreact/blob/master/demo/03/index.html)
+1. [this.props.children](https://github.com/yangtao2o/myreact/blob/master/demo/04/index.html)
+1. [PropTypes](https://github.com/yangtao2o/myreact/blob/master/demo/05/index.html)
+1. [获取真实的 DOM 节点](https://github.com/yangtao2o/myreact/blob/master/demo/06/index.html)
+1. [this.state](https://github.com/yangtao2o/myreact/blob/master/demo/07/index.html)
+1. [表单](https://github.com/yangtao2o/myreact/blob/master/demo/08/index.html)
+1. [组件的生命周期](https://github.com/yangtao2o/myreact/blob/master/demo/09/index.html)
+1. [使用 Promise 获取 Github 的数据](https://github.com/yangtao2o/myreact/blob/master/demo/10/index.html)
+1. [Todo List](https://github.com/yangtao2o/myreact/blob/master/demo/11/index.html)
 
 ## Project
 
