@@ -10,6 +10,19 @@
 > 1. 注意引入文件的顺序及所需的几个文件
 > 2. 不要忘记`<script type="text/babel"></script>`的 type 属性，不然会报错，比如：`Uncaught SyntaxError: Unexpected token <`等
 
+## 示例目录
+1. [ReactDOM.render()](https://istaotao.com/myreact/demo/01/)
+1. [Use Array in JSX](https://istaotao.com/myreact/demo/02/)
+1. [组件](https://istaotao.com/myreact/demo/03/)
+1. [this.props.children](https://istaotao.com/myreact/demo/04/)
+1. [PropTypes](https://istaotao.com/myreact/demo/05/)
+1. [获取真实的 DOM 节点](https://istaotao.com/myreact/demo/06/)
+1. [this.state](https://istaotao.com/myreact/demo/07/)
+1. [表单](https://istaotao.com/myreact/demo/08/)
+1. [组件的生命周期](https://istaotao.com/myreact/demo/10/)
+1. [使用 Promise 获取 Github 的数据](https://istaotao.com/myreact/demo/11/)
+1. [Todo List](https://istaotao.com/myreact/demo/12/)
+
 ### Demo01: ReactDOM.render()
 
 [Demo](https://istaotao.com/myreact/demo/01/) / [Source](https://github.com/yangtao2o/myreact/blob/master/demo/01/index.html)
@@ -412,3 +425,11 @@ ReactDOM.render(
 如果 Promise 对象抓取数据成功（fulfilled 状态），组件显示获取的数据。
 
 [在这里查看完整Demo](https://istaotao.com/myreact/demo/11/)/[源码](https://github.com/yangtao2o/myreact/blob/master/demo/11/index.html)
+
+## 接下来来几个混合实战吧
+
+### Demo11: Todo List
+
+[Demo](https://istaotao.com/myreact/demo/12/) / [Source](https://github.com/yangtao2o/myreact/blob/master/demo/12/index.html)
+
+* [React todo list](https://codepen.io/marekdano/pen/bVNYpq)
