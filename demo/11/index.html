@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Most Popular JavaScript Projects in Github</title>
+  <title>Todo List</title>
   <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css"
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link rel="stylesheet" href="main.css">
@@ -19,81 +19,148 @@
   <div id="root"></div>
 
   <script type="text/babel">
-    class ReportList extends React.Component {
+    class TodoApp extends React.Component {
       constructor(props) {
         super(props);
         this.state = {
-          loading: true,
-          data: null,
-          error: null,
+          items: [],
         };
-        this.getKB = this.getKB.bind(this);
+        this.addItem = this.addItem.bind(this);
+        this.deleteItem = this.deleteItem.bind(this);
+        this.doneItem = this.doneItem.bind(this);
       }
-      componentDidMount() {
-        this.props.promise.then(
-          value => this.setState({loading: false, data: value}),
-          error => this.setState({loading: false, error: error})
+      
+      addItem(item) {
+        const newItem = {
+          text: item.text,
+          id: Date.now(),
+          done: false
+        }
+        this.setState({
+          items: this.state.items.concat(newItem)
+        });
+      }
+
+      deleteItem(index) {
+        this.state.items.splice(index, 1);
+        this.setState({
+          items: this.state.items
+        })
+      }
+
+      doneItem(index) {
+        const items = this.state.items;
+        const todo = items[index];
+        items.splice(index, 1);
+        todo.done = !todo.done;
+        todo.done ? items.unshift(todo) : items.push(todo);
+        this.setState({ items });
+      }
+  
+      render() {
+        return (
+          <div className="container">
+            <h1>TODO</h1>
+            <TodoList 
+              items={this.state.items} 
+              deleteClick={this.deleteItem} 
+              doneClick={this.doneItem}
+            />
+            <TodoForm 
+              addItem={this.addItem} 
+              items={this.state.items} 
+            />
+          </div>
         );
       }
-      getKB(target) {
-        return Math.ceil(target / 1000) + 'k';
-      }
-      render() {
-        if(this.state.loading) {
-          return <div className="container"><h1 className="text-center">Loading...</h1></div>;
-        } else if(this.state.error) {
-          return <div className="container">呀，出错了：{this.state.error.message}</div>;
-        } else {
-          const items = this.state.data.items;
-          const lists = items.map((item, index) => {
-            const star = this.getKB(item.stargazers_count);
-            const fork = this.getKB(item.forks);
-            return (
-              <li key={index}>
-                <div className="media">
-                  <div className="ranking mr-3">{index + 1}</div>
-                  <div className="media-body">
-                    <h4 className="title mt-0"><a href={item.html_url}>{item.name}</a></h4>
-                    <p className="desc">{item.description}</p>
-                  </div>
-                  <div className="icon ml-3 text-right">{star} <img src="./icon-star.svg" /><br />{fork} <img src="./icon-fork.svg" /></div>
-                </div>
-               </li>
-            );
-          });
-
-          return (
-            <div className="container">
-              <h1 className="display-6">Most Popular JavaScript Projects in Github</h1>
-              <div className="date-wrap text-center"><Clock /></div>
-              <ul className="items-wrap">{lists}</ul>
-            </div>
-          )
-        }
-      }
     }
-    class Clock extends React.Component {
+    
+    class TodoForm extends React.Component {
       constructor(props) {
         super(props);
-        this.state = { date: new Date() };
+        this.state = { text: '' }
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
       }
-      componentDidMount() {
-        this.timerID = setInterval(() => this.tick(), 1000);
+
+      handleChange(e) {
+        this.setState({ text: e.target.value })
       }
-      componentWillUnmount() {
-        clearInterval(this.timerID);
-      }
-      tick() {
-        this.setState({ date: new Date() })
+
+      handleSubmit(e) {
+        e.preventDefault();
+        if(!this.state.text) {
+          return;
+        }
+        this.props.addItem({text: this.state.text})
+        this.setState({text: ''})
       }
       render() {
-        return <span>{this.state.date.toLocaleTimeString()}</span>;
+        return (
+          <form onSubmit={this.handleSubmit}>
+            <input onChange={this.handleChange}  className="form-control form-control-lg" type="text" value={this.state.text} placeholder="如：今天我要吃大盘鸡" />
+            <div className="mt-3 text-center">
+              <button type="submit" className="btn btn-primary">Add #{this.props.items.length + 1}</button>  
+            </div>
+          </form>
+        );
       }
     }
+
+    class TodoList extends React.Component {
+      render() {
+        const list = this.props.items.map((item, index) => {
+          return (
+            <TodoListItem 
+              key={item.id}
+              text={item.text}
+              done={item.done}
+              index={index}
+              removeItem={this.props.deleteClick}
+              doneItem={this.props.doneClick}
+            />
+          );
+        })
+
+        return (
+          <ul className="mb-3">{list}</ul>
+        );
+      }
+    }
+
+    class TodoListItem extends React.Component {
+      constructor(props) {
+        super(props);
+        this.deleteClick = this.deleteClick.bind(this);
+        this.doneClick = this.doneClick.bind(this);
+      }
+      deleteClick() {
+        const index = parseInt(this.props.index);
+        this.props.removeItem(index);
+      }
+      doneClick() {
+        const index = parseInt(this.props.index);
+        this.props.doneItem(this.props.index)
+      }
+      render() {
+        return (
+          <li className="alert alert-info row" role="alert">
+            <div className="col-md-9">
+              <span className={this.props.done ? 'complete' : ''}>{this.props.text}</span>
+            </div>
+            <div className="col-md-3 text-right">
+              <input type="button" onClick={this.doneClick} className="btn btn-sm btn-success" value="完成" />&nbsp;&nbsp;
+              <input type="button" onClick={this.deleteClick} className="btn btn-sm btn-danger" value="删除" />
+            </div>
+          </li>
+        );
+      }
+    }
+
     ReactDOM.render(
-      <ReportList promise={$.getJSON('https://api.github.com/search/repositories?q=javascript&sort=stars')}/>,
+      <TodoApp />,
       document.getElementById('root')
-    );
+    )
   </script>
 </body>
 

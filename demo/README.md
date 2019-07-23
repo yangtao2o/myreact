@@ -11,6 +11,7 @@
 > 2. 不要忘记`<script type="text/babel"></script>`的 type 属性，不然会报错，比如：`Uncaught SyntaxError: Unexpected token <`等
 
 ## 示例目录
+
 1. [ReactDOM.render()](https://istaotao.com/myreact/demo/01/)
 1. [Use Array in JSX](https://istaotao.com/myreact/demo/02/)
 1. [组件](https://istaotao.com/myreact/demo/03/)
@@ -285,7 +286,7 @@ ReactDOM.render(<NameForm />, document.getElementById("root"));
 
 [非受控组件](https://zh-hans.reactjs.org/docs/uncontrolled-components.html)：表单数据将交由 DOM 节点来处理，即使用 ref 来从 DOM 节点中获取表单数据
 
-[Demo](https://istaotao.com/myreact/demo/09/) / [Source](https://github.com/yangtao2o/myreact/blob/master/demo/09/index.html)
+[Demo](https://istaotao.com/myreact/demo/08-1/) / [Source](https://github.com/yangtao2o/myreact/blob/master/demo/08-1/index.html)
 
 ```javascript
 class NameForm extends React.Component {
@@ -313,7 +314,7 @@ ReactDOM.render(<NameForm />, document.getElementById("root"));
 
 ### Demo09: 组件的生命周期
 
-[Demo](https://istaotao.com/myreact/demo/10/) / [Source](https://github.com/yangtao2o/myreact/blob/master/demo/10/index.html)
+[Demo](https://istaotao.com/myreact/demo/09/) / [Source](https://github.com/yangtao2o/myreact/blob/master/demo/09/index.html)
 
 - [组件的生命周期](https://zh-hans.reactjs.org/docs/react-component.html)
 - [生命周期图谱速查表](http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/)
@@ -404,7 +405,7 @@ ReactDOM.render(<Hello name="React" />, document.getElementById("root"));
 
 ### Demo10: 使用 Promise 获取 Github 的数据
 
-[Demo](https://istaotao.com/myreact/demo/11/) / [Source](https://github.com/yangtao2o/myreact/blob/master/demo/11/index.html)
+[Demo](https://istaotao.com/myreact/demo/10/) / [Source](https://github.com/yangtao2o/myreact/blob/master/demo/10/index.html)
 
 ```javascript
 ReactDOM.render(
@@ -416,6 +417,7 @@ ReactDOM.render(
   document.getElementById("root")
 );
 ```
+
 从 Github 的 API 抓取数据，然后将 Promise 对象作为属性，传给 ReportList 组件。
 
 如果 Promise 对象正在抓取数据（pending 状态），组件显示"loading..."；
@@ -424,12 +426,70 @@ ReactDOM.render(
 
 如果 Promise 对象抓取数据成功（fulfilled 状态），组件显示获取的数据。
 
-[在这里查看完整Demo](https://istaotao.com/myreact/demo/11/)/[源码](https://github.com/yangtao2o/myreact/blob/master/demo/11/index.html)
+[在这里查看完整 Demo](https://istaotao.com/myreact/demo/11/)/[源码](https://github.com/yangtao2o/myreact/blob/master/demo/11/index.html) --- 谷歌浏览器有时候会报跨域的问题，可以使用火狐等浏览器试看
 
 ## 接下来来几个混合实战吧
 
 ### Demo11: Todo List
 
-[Demo](https://istaotao.com/myreact/demo/12/) / [Source](https://github.com/yangtao2o/myreact/blob/master/demo/12/index.html)
+[Demo](https://istaotao.com/myreact/demo/11/) / [Source](https://github.com/yangtao2o/myreact/blob/master/demo/11/index.html)
 
-* [React todo list](https://codepen.io/marekdano/pen/bVNYpq)
+- [React todo list](https://codepen.io/marekdano/pen/bVNYpq)
+
+主要练习使用 `props` 和 `state`，使用 state 保存现有的待办事项列表及用户的一些操作（删除、完成）等。
+
+```javascript
+class TodoApp extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      items: []
+    };
+    this.addItem = this.addItem.bind(this);
+    this.deleteItem = this.deleteItem.bind(this);
+    this.doneItem = this.doneItem.bind(this);
+  }
+
+  addItem(item) {
+    const newItem = {
+      text: item.text,
+      id: Date.now(),
+      done: false
+    };
+    this.setState({
+      items: this.state.items.concat(newItem)
+    });
+  }
+
+  deleteItem(index) {
+    this.state.items.splice(index, 1);
+    this.setState({
+      items: this.state.items
+    });
+  }
+
+  doneItem(index) {
+    const items = this.state.items;
+    const todo = items[index];
+    items.splice(index, 1);
+    todo.done = !todo.done;
+    todo.done ? items.unshift(todo) : items.push(todo);
+    this.setState({ items });
+  }
+
+  render() {
+    return (
+      <div className="container">
+        <h1>TODO</h1>
+        <TodoList
+          items={this.state.items}
+          deleteClick={this.deleteItem}
+          doneClick={this.doneItem}
+        />
+        <TodoForm addItem={this.addItem} items={this.state.items} />
+      </div>
+    );
+  }
+}
+```
+

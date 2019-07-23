@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Hello Form</title>
+  <title>Hello 生命周期</title>
   <script src="https://cdn.staticfile.org/react/16.4.0/umd/react.development.js"></script>
   <script src="https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js"></script>
   <script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
@@ -15,30 +15,46 @@
   <div id="root"></div>
 
   <script type="text/babel">
-    class NameForm extends React.Component {
+    class Hello extends React.Component {
       constructor(props) {
         super(props);
-        this.input = React.createRef();
-        this.handleSubmit = this.handleSubmit.bind(this);
+        this.state = {
+          fontSize: 12,
+          opacity: .01,
+        }
       }
-      handleSubmit(event) {
-        alert('接受到的name值是：' + this.input.current.value);
-        event.preventDefault();
+      componentDidMount() {
+        this.timerID = setInterval(() => {
+          let opacity = this.state.opacity;
+          let fontSize = this.state.fontSize;
+          opacity += .02;
+          fontSize += 1;
+          if(opacity >= 1) {
+            opacity = 0.01;
+          }
+          if(fontSize >= 63) {
+            fontSize = 12;
+          }
+          this.setState({
+            fontSize,
+            opacity,
+          })
+        }, 100);
+      }
+      componentWillUnmount() {
+        clearInterval(this.timerID);
       }
       render() {
         return (
-          <form onSubmit={this.handleSubmit}>
-            <input type="text" ref={this.input} />
-            <input type="submit" value="提交" />
-          </form>
+          <h1 style={{opacity: this.state.opacity, fontSize: this.state.fontSize}}>Hello, {this.props.name}</h1>
         )
       }
+      
     }
-
     ReactDOM.render(
-      <NameForm />,
+      <Hello name="React" />,
       document.getElementById('root')
-    )
+    );
   </script>
 </body>
 
