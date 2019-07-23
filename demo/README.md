@@ -20,9 +20,9 @@
 1. [获取真实的 DOM 节点](https://istaotao.com/myreact/demo/06/)
 1. [this.state](https://istaotao.com/myreact/demo/07/)
 1. [表单](https://istaotao.com/myreact/demo/08/)
-1. [组件的生命周期](https://istaotao.com/myreact/demo/10/)
-1. [使用 Promise 获取 Github 的数据](https://istaotao.com/myreact/demo/11/)
-1. [Todo List](https://istaotao.com/myreact/demo/12/)
+1. [组件的生命周期](https://istaotao.com/myreact/demo/09/)
+1. [使用 Promise 获取 Github 的数据](https://istaotao.com/myreact/demo/10/)
+1. [Todo List](https://istaotao.com/myreact/demo/11/)
 
 ### Demo01: ReactDOM.render()
 
@@ -493,3 +493,6 @@ class TodoApp extends React.Component {
 }
 ```
 
+### Demo12: Todo List
+
+[Demo](https://istaotao.com/myreact/demo/12/) / [Source](https://github.com/yangtao2o/myreact/blob/master/demo/12/index.html)
