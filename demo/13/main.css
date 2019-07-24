@@ -1,0 +1,42 @@
+@charset "utf-8";
+
+body {
+  font: 14px "Century Gothic", Futura, sans-serif;
+  margin: 20px;
+}
+
+ol, ul {
+  padding-left: 30px;
+}
+
+.board-row:after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+.status {
+  height: 30px;
+  margin-bottom: 10px;
+}
+
+.square {
+  float: left;
+  font-size: 48px;
+  font-weight: bold;
+  width: 100px;
+  height: 100px;
+  line-height: 100%;
+  text-align: center;
+}
+
+.game-info {
+  margin-left: 20px;
+}
+.step-item li {
+  margin-top: 5px;
+}
+.message {
+  margin-top: 5rem;
+  font-size: 1.4rem;
+}

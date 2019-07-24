@@ -39,6 +39,7 @@
 1. [组件的生命周期](https://github.com/yangtao2o/myreact/blob/master/demo/09/index.html)
 1. [使用 Promise 获取 Github 的数据](https://github.com/yangtao2o/myreact/blob/master/demo/10/index.html)
 1. [Todo List](https://github.com/yangtao2o/myreact/blob/master/demo/11/index.html)
+1. [井字棋（Tic Tac Toe）](https://github.com/yangtao2o/myreact/blob/master/demo/12/index.html)
 
 ## Project
 
