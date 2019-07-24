@@ -493,6 +493,9 @@ class TodoApp extends React.Component {
 }
 ```
 
-### Demo12: Todo List
+### Demo12: 井字棋（Tic Tac Toe）
 
 [Demo](https://istaotao.com/myreact/demo/12/) / [Source](https://github.com/yangtao2o/myreact/blob/master/demo/12/index.html)
+
+* [Tic Tac Toe](https://codepen.io/gaearon/pen/gWWZgR?editors=0010)
+* [井字棋游戏教程文档](https://zh-hans.reactjs.org/tutorial/tutorial.html#inspecting-the-starter-code)

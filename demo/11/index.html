@@ -12,7 +12,6 @@
   <script src="https://cdn.staticfile.org/react/16.4.0/umd/react.development.js"></script>
   <script src="https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js"></script>
   <script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
-  <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -36,16 +35,18 @@
           id: Date.now(),
           done: false
         }
-        this.setState({
-          items: this.state.items.concat(newItem)
-        });
+
+        this.setState((state) => ({
+          items: state.items.concat(newItem)
+        }));
       }
 
       deleteItem(index) {
         this.state.items.splice(index, 1);
-        this.setState({
-          items: this.state.items
-        })
+       
+        this.setState((state) => ({
+          items: state.items
+        }));
       }
 
       doneItem(index) {
