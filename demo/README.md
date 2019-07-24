@@ -1,9 +1,18 @@
 ## React 从入门到进阶的一些 Demo
 
-> 练习 demo 都是引入资源的练习方式，有两点需要注意：
->
-> 1. 注意引入文件的顺序及所需的几个文件
-> 2. 不要忘记`<script type="text/babel"></script>`的 type 属性，不然会报错，比如：`Uncaught SyntaxError: Unexpected token <`等
+#### 引入资源
+* [With babel-standalone](https://babeljs.io/en/setup/#installation)
+```javascript
+<div id="output"></div>
+<!-- Load Babel -->
+<!-- v6 <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script> -->
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<!-- Your custom script here -->
+<script type="text/babel">
+const getMessage = () => "Hello World";
+document.getElementById('output').innerHTML = getMessage();
+</script>
+```
 
 ## 学习资料
 
@@ -23,6 +32,7 @@
 1. [组件的生命周期](https://istaotao.com/myreact/demo/09/)
 1. [使用 Promise 获取 Github 的数据](https://istaotao.com/myreact/demo/10/)
 1. [Todo List](https://istaotao.com/myreact/demo/11/)
+1. [井字棋（Tic Tac Toe）](https://istaotao.com/myreact/demo/12/)
 
 ### Demo01: ReactDOM.render()
 
@@ -510,4 +520,4 @@ class TodoApp extends React.Component {
 - [ ] 使用两个循环来渲染出棋盘的格子，而不是在代码里写死（hardcode）
 - [ ] 添加一个可以升序或降序显示历史记录的按钮
 - [ ] 每当有人获胜时，高亮显示连成一线的 3 颗棋子
-- [ ] 当无人获胜时，显示一个平局的消息
+- [x] 当无人获胜时，显示一个平局的消息
