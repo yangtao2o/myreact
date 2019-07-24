@@ -41,9 +41,9 @@
     }
 
     class Board extends React.Component {
-      renderSquare(x, y) {
+      renderSquare(i) {
         return (
-          <Square value={this.props.squares[x]} onClick={() => this.props.onClick(x, y)} />
+          <Square value={this.props.squares[i]} onClick={() => this.props.onClick(i)} />
         );
       }
 
@@ -79,30 +79,48 @@
               squares: Array(9).fill(null),
             },
           ],
+          location: [[0, 0]],
           xIsNext: true,
           stepNumber: 0,
         }
       }
 
-      handleClick(x, y) {
+      handleClick(i) {
         const history = this.state.history.slice(0, this.state.stepNumber + 1);
         const current = history[history.length - 1];
         const squares = current.squares.slice();
-        if(calculateWinner(squares) || squares[x]) {
+        const location = this.state.location.slice(0, this.state.stepNumber + 1);
+        if(calculateWinner(squares) || squares[i]) {
           return;
         }
-        squares[x] = this.state.xIsNext ? 'X' : 'O';
-
+        squares[i] = this.state.xIsNext ? 'X' : 'O';
+        location.push(this.getLocation(i));
         this.setState({
           history: history.concat([{
-            squares: squares,
+            squares,
           }]), 
+          location: location,
           xIsNext: !this.state.xIsNext,
           stepNumber: history.length,
         });
       }
 
-      jumpTo(step) {
+      getLocation(i) {
+        const x = Math.floor(i / 3) + 1;
+        let y = 0;
+        y = ((i + 1) % 3 === 0) ? 3 : (i + 1) % 3;
+        return [x, y];
+      }
+
+      jumpTo(e, step) {
+        const list = e.target.parentNode.parentNode.childNodes;
+        for(let i = 0; i < list.length; i++) {
+          let item = list[i];
+          if(item.childNodes[0].classList.contains('active')) {
+            item.childNodes[0].classList.remove('active');
+          }
+        }
+        e.target.classList.add('active');
         this.setState({
           stepNumber: step,
           xIsNext: (step % 2) === 0,
@@ -112,13 +130,13 @@
       render() {
         const history = this.state.history;
         const current = history[this.state.stepNumber];
-        const location = current.location;
         const winner = calculateWinner(current.squares);
+        const location = this.state.location.slice();
         const moves = history.map((item, index) => {
           const desc = index ? 'Go to move #' + index : 'Go to move start';
           return (
             <li key={index}>
-              <button className="btn btn-outline-secondary btn-sm" type="button" onClick={() => this.jumpTo(index)}>{desc} (x, y)</button>
+              <button className="btn btn-outline-secondary btn-sm" type="button" onClick={(e) => this.jumpTo(e, index)}>{desc} ({location[index][0]}, {location[index][1]})</button>
             </li>
           );
         });
@@ -139,7 +157,7 @@
             <div className="message mb-5 text-center">{status}</div>
             <div className="row justify-content-center">
               <div className="col-md-auto">
-                <Board squares={current.squares} onClick={(x, y) => this.handleClick(x, y)}  />
+                <Board squares={current.squares} onClick={(i) => this.handleClick(i)}  />
               </div>
               <div className="col-md-auto">
                 <ol className="step-item">{moves}</ol>

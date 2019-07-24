@@ -1,5 +1,4 @@
 @charset "utf-8";
-
 body {
   font: 14px "Century Gothic", Futura, sans-serif;
   margin: 20px;
@@ -33,10 +32,13 @@ ol, ul {
 .game-info {
   margin-left: 20px;
 }
+
 .step-item li {
   margin-top: 5px;
 }
+
 .message {
+  height: 40px;
   margin-top: 5rem;
   font-size: 1.4rem;
 }
