@@ -1,7 +1,9 @@
-## React 从入门到进阶的一些 Demo
+# React 从入门到进阶的一些 Demo
 
-#### 引入资源
-* [With babel-standalone](https://babeljs.io/en/setup/#installation)
+## 引入资源
+
+- [With babel-standalone](https://babeljs.io/en/setup/#installation)
+
 ```javascript
 <div id="output"></div>
 <!-- Load Babel -->
@@ -19,7 +21,7 @@ document.getElementById('output').innerHTML = getMessage();
 - [React 入门实例教程](http://www.ruanyifeng.com/blog/2015/03/react.html) --- 阮一峰
 - [react-demos](https://github.com/ruanyf/react-demos)
 
-## 示例目录
+## DEMO 目录
 
 1. [ReactDOM.render()](https://istaotao.com/myreact/demo/01/)
 1. [Use Array in JSX](https://istaotao.com/myreact/demo/02/)
@@ -332,7 +334,7 @@ ReactDOM.render(<NameForm />, document.getElementById("root"));
 
 主要路线顺序：挂载 - 更新 - 卸载 - 错误处理
 
-#### 挂载
+**挂载**
 
 当组件实例被创建并插入 DOM 中时，其生命周期调用如下：
 
@@ -341,7 +343,7 @@ ReactDOM.render(<NameForm />, document.getElementById("root"));
 - render() --- 唯一必须实现的方法，并且应该是纯函数
 - componentDidMount() --- 依赖于 DOM 节点的初始化应该在这里
 
-#### 更新
+**更新**
 
 当组件的 props 或 state 发生变化时，会触发更新：
 
@@ -351,13 +353,13 @@ ReactDOM.render(<NameForm />, document.getElementById("root"));
 - getSnapshotBeforeUpdate() --- 不常用
 - componentDidUpdate() --- 在更新后会被立即调用
 
-#### 卸载
+**卸载**
 
 当组件从 DOM 中移除时：
 
 - componentWillUnmount() --- 会在组件卸载及销毁之前直接调用
 
-#### 错误处理
+**错误处理**
 
 当渲染过程，生命周期，或子组件的构造函数中抛出错误时：
 
@@ -509,7 +511,7 @@ class TodoApp extends React.Component {
 
 - [Tic Tac Toe](https://codepen.io/gaearon/pen/gWWZgR?editors=0010)
 - [井字棋游戏教程文档](https://zh-hans.reactjs.org/tutorial/tutorial.html#inspecting-the-starter-code)
-- [React的井字过三关](https://www.bbsmax.com/A/8Bz8kVodxg/)
+- [React 的井字过三关](https://www.bbsmax.com/A/8Bz8kVodxg/)
 
 #### tic-tac-toe(三连棋)游戏的功能
 

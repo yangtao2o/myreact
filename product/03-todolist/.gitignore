@@ -11,9 +11,6 @@
 # production
 /build
 
-# next-learn-demo
-/next-learn-demo
-
 # misc
 .DS_Store
 .env.local
