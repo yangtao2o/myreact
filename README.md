@@ -63,6 +63,17 @@
 1. [Todo List](https://istaotao.com/myreact/demo/11/)
 1. [井字棋（Tic Tac Toe）](https://istaotao.com/myreact/demo/12/)
 
+
+> Next.js
+
+* Demo1: 学习官方文档
+
+```bash
+cd nextjs/01-hello-next
+npm install
+npm run dev
+```
+
 ## My Project
 
 - [学习「井字游戏」](./product/01-ttt/)
