@@ -509,6 +509,7 @@ class TodoApp extends React.Component {
 
 - [Tic Tac Toe](https://codepen.io/gaearon/pen/gWWZgR?editors=0010)
 - [井字棋游戏教程文档](https://zh-hans.reactjs.org/tutorial/tutorial.html#inspecting-the-starter-code)
+- [React的井字过三关](https://www.bbsmax.com/A/8Bz8kVodxg/)
 
 #### tic-tac-toe(三连棋)游戏的功能
 

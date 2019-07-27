@@ -4,7 +4,7 @@
 
 #### 初级
 - [x] [基于实例的 React16 傻瓜课程](https://www.imooc.com/learn/1045) --- 用一系列有趣的、简洁明快的实例由浅入深的阐述了 React 的特色，概念和基本使用
-- [ ] [react16.4 快速上手](https://www.imooc.com/learn/1023) --- 通过 Todolist 功能的实现，给大家讲解了 React 组件间的通信方式
+- [x] [react16.4 快速上手](https://www.imooc.com/learn/1023) --- 通过 Todolist 功能的实现，给大家讲解了 React 组件间的通信方式
 
 #### 中级
 - [ ] [React 16 实现订单列表及评价功能](https://www.imooc.com/learn/1061) --- 介绍了从项目创建、到组件划分、再到组件及页面逻辑实现的开发流程
@@ -26,7 +26,9 @@
 
 ## Learn
 
-#### 学习阮一峰老师的《React 入门实例教程》的练习 [DEMO](./demo/)，比如：
+#### 入门学习React的几个例子 
+
+* [Demo 地址，戳我](./demo/)
 
 1. [ReactDOM.render()](https://github.com/yangtao2o/myreact/blob/master/demo/01/index.html)
 1. [Use Array in JSX](https://github.com/yangtao2o/myreact/blob/master/demo/02/index.html)
@@ -37,9 +39,9 @@
 1. [this.state](https://github.com/yangtao2o/myreact/blob/master/demo/07/index.html)
 1. [表单](https://github.com/yangtao2o/myreact/blob/master/demo/08/index.html)
 1. [组件的生命周期](https://github.com/yangtao2o/myreact/blob/master/demo/09/index.html)
-1. [使用 Promise 获取 Github 的数据](https://github.com/yangtao2o/myreact/blob/master/demo/10/index.html)
-1. [Todo List](https://github.com/yangtao2o/myreact/blob/master/demo/11/index.html)
-1. [井字棋（Tic Tac Toe）](https://github.com/yangtao2o/myreact/blob/master/demo/12/index.html)
+1. [使用 Promise 获取 Github 的数据](https://istaotao.com/myreact/demo/10/)
+1. [Todo List](https://istaotao.com/myreact/demo/11/)
+1. [井字棋（Tic Tac Toe）](https://istaotao.com/myreact/demo/12/)
 
 ## Project
 
