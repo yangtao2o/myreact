@@ -4,7 +4,7 @@
 
 ## 资料
 
-* [learnnextjs-cn-docs](https://github.com/developerworks/learnnextjs-cn-docs)
+* [learnnextjs-cn-docs](https://github.com/developerworks/learnnextjs-cn-docs) --- 中文文档
 * [Express](http://www.expressjs.com.cn/4x/api.html)
 
 ## Demo
@@ -23,6 +23,6 @@ npm run dev
 - [x] 创建动态页面
 - [x] 使用路由掩码创建干净的URL
 - [x] 干净URL的服务器端支持
-- [x] 为页面获取数据
+- [x] 为页面获取数据 --- 特性：**通用数据获取**和**服务端渲染（SSR）**
 - [ ] 组件样式
 - [ ] 部署
