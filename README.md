@@ -1,6 +1,6 @@
 # 学习 React 的一些记录日志
 
-# 主体目录
+#### 目录
 
 - [Document](#document)
 - [Video Course](#video-corse)
@@ -33,9 +33,9 @@
 
 #### 高级
 
-- [ ] [react响应用户输入](https://www.imooc.com/learn/953) --- 学习如何让数据逻辑与 UI 的结合使用、react 的事件处理机制以及 react 对 DOM 模型的操作
-- [ ] [react知识点综合运用实例](https://www.imooc.com/learn/971) --- 综合实例操作
-- [ ] [react高级教程之高阶组件](https://www.imooc.com/learn/1075) --- 高阶组件的应用：代理和继承
+- [ ] [react 响应用户输入](https://www.imooc.com/learn/953) --- 学习如何让数据逻辑与 UI 的结合使用、react 的事件处理机制以及 react 对 DOM 模型的操作
+- [ ] [react 知识点综合运用实例](https://www.imooc.com/learn/971) --- 综合实例操作
+- [ ] [react 高级教程之高阶组件](https://www.imooc.com/learn/1075) --- 高阶组件的应用：代理和继承
 
 ## Learning Materials
 
@@ -48,7 +48,7 @@
 
 #### 入门学习 React 的几个例子
 
-> [Demo 地址，戳我](./demo/)
+**[Demo 地址，戳我](./demo/)**
 
 1. [ReactDOM.render()](https://github.com/yangtao2o/myreact/blob/master/demo/01/index.html)
 1. [Use Array in JSX](https://github.com/yangtao2o/myreact/blob/master/demo/02/index.html)
@@ -63,10 +63,11 @@
 1. [Todo List](https://istaotao.com/myreact/demo/11/)
 1. [井字棋（Tic Tac Toe）](https://istaotao.com/myreact/demo/12/)
 
+#### Nextjs --- 配合 React 打造静态化和服务端渲染应用
 
-> Next.js
+**[Nextjs](https://github.com/yangtao2o/myreact/tree/master/nextjs/01-hello-next)**
 
-* Demo1: 学习官方文档
+- Demo1: 学习官方文档
 
 ```bash
 cd nextjs/01-hello-next

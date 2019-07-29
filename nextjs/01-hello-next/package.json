@@ -1,15 +1,16 @@
 {
   "name": "01-hello-next",
   "version": "1.0.0",
-  "description": "",
+  "description": "Create React App about Next.js",
   "main": "index.js",
   "scripts": {
     "dev": "nodemon server.js",
     "build": "next build",
     "start": "next start -p $PORT"
   },
+  "homepage": "https://istaotao.com/myreact/nextjs/01-hello-next/",
   "keywords": [],
-  "author": "",
+  "author": "Tao",
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
