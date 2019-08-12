@@ -1,25 +1,6 @@
 # React 从入门到进阶的一些 Demo
 
-## 引入资源
-
-- [With babel-standalone](https://babeljs.io/en/setup/#installation)
-
-```javascript
-<div id="output"></div>
-<!-- Load Babel -->
-<!-- v6 <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script> -->
-<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-<!-- Your custom script here -->
-<script type="text/babel">
-const getMessage = () => "Hello World";
-document.getElementById('output').innerHTML = getMessage();
-</script>
-```
-
-## 学习资料
-
-- [React 入门实例教程](http://www.ruanyifeng.com/blog/2015/03/react.html) --- 阮一峰
-- [react-demos](https://github.com/ruanyf/react-demos)
+> 这是几个入门学习 React 的小 Demo，帮助自己学习了解 React 的运行机制。
 
 ## DEMO 目录
 
@@ -35,6 +16,22 @@ document.getElementById('output').innerHTML = getMessage();
 1. [使用 Promise 获取 Github 的数据](https://istaotao.com/myreact/demo/10/)
 1. [Todo List](https://istaotao.com/myreact/demo/11/)
 1. [井字棋（Tic Tac Toe）](https://istaotao.com/myreact/demo/12/)
+
+## 引入资源
+
+- [With babel-standalone](https://babeljs.io/en/setup/#installation)
+
+```javascript
+<div id="output"></div>
+<!-- Load Babel -->
+<!-- v6 <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script> -->
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<!-- Your custom script here -->
+<script type="text/babel">
+const getMessage = () => "Hello World";
+document.getElementById('output').innerHTML = getMessage();
+</script>
+```
 
 ### Demo01: ReactDOM.render()
 
@@ -524,3 +521,8 @@ class TodoApp extends React.Component {
 - [ ] 添加一个可以升序或降序显示历史记录的按钮
 - [ ] 每当有人获胜时，高亮显示连成一线的 3 颗棋子
 - [x] 当无人获胜时，显示一个平局的消息
+
+## 学习资料
+
+- [React 入门实例教程](http://www.ruanyifeng.com/blog/2015/03/react.html) --- 阮一峰
+- [react-demos](https://github.com/ruanyf/react-demos)
