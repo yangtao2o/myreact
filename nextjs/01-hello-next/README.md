@@ -4,12 +4,12 @@
 
 ## 资料
 
-* [learnnextjs-cn-docs](https://github.com/developerworks/learnnextjs-cn-docs) --- 中文文档
-* [Express](http://www.expressjs.com.cn/4x/api.html)
+- [learnnextjs-cn-docs](https://github.com/developerworks/learnnextjs-cn-docs) --- 中文文档
+- [Express](http://www.expressjs.com.cn/4x/api.html)
 
 ## Demo
 
-#### Demo1: 学习官方文档
+### Demo1: 学习官方文档
 
 ```bash
 cd ./01-hello-next
@@ -34,8 +34,8 @@ PORT 8000 npm start
 - [x] 页面之间的导航
 - [x] 使用共享组件
 - [x] 创建动态页面
-- [x] 使用路由掩码创建干净的URL
-- [x] 干净URL的服务器端支持
+- [x] 使用路由掩码创建干净的 URL
+- [x] 干净 URL 的服务器端支持
 - [x] 为页面获取数据 --- 特性：**通用数据获取**和**服务端渲染（SSR）**
 - [x] 组件样式
 - [x] 部署

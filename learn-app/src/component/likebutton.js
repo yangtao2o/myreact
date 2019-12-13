@@ -7,10 +7,11 @@ class LikeButton extends Component {
     this.state = {
       liked: false,
     };
+    // this.handleClick = this.handleClick.bind(this)
     console.log('super', this)
   }
 
-  handleClick(e) {
+  handleClick = () => {
     this.setState({
       liked: !this.state.liked
     })
@@ -21,7 +22,7 @@ class LikeButton extends Component {
     console.log('render: ', this)
     return (
       <div>
-        <h2 onClick={this.handleClick.bind(this)}>
+        <h2 onClick={this.handleClick}>
           You {text} this. Click to toggle.
         </h2>
       </div>
