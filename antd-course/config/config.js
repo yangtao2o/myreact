@@ -4,7 +4,8 @@ export default {
     [
       "umi-plugin-react",
       {
-        antd: true
+        antd: true,
+        dva: true
       }
     ]
   ],
@@ -20,6 +21,10 @@ export default {
         {
           path: "helloworld",
           component: "./HelloWorld"
+        },
+        {
+          path: "puzzlecards",
+          component: "./puzzlecards"
         }
       ]
     }
