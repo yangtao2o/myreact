@@ -2,52 +2,54 @@ import React from "react";
 import {
   BrowserRouter as Router,
   Switch,
-  Link,
   NavLink,
   Route,
+  useLocation,
   Redirect,
   useParams
 } from "react-router-dom";
 import "./App.css";
 
-import Home from "./component/Home.js";
+import Basic from "./component/Basic";
+import UrlParams from "./component/UrlParams";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <Router>
-          <ul>
+    <Router>
+      <div className="App">
+        <header className="App-header">
+          <ul className="nav-item">
             <li>
-              <Link to="/netflix">Netflix</Link>
+              <NavLink to="/">
+                Basic
+              </NavLink>
             </li>
             <li>
-              <Link to="/zillow-group">Zillow Group</Link>
-            </li>
-            <li>
-              <Link to="/yahoo">Yahoo</Link>
-            </li>
-            <li>
-              <Link to="/modus-create">Modus Create</Link>
+              <NavLink to="/url-params">Url-params</NavLink>
             </li>
           </ul>
-          <Switch>
-            <Route path="/:id" children={<Child />} />
-          </Switch>
-        </Router>
-      </header>
-    </div>
+          <section className="nav-content">
+            <Switch>
+              <Route exact path="/" component={Basic} />
+              <Route path="/url-params" component={UrlParams} />
+              <Route path="*">
+                <NoMatch />
+              </Route>
+            </Switch>
+          </section>
+        </header>
+      </div>
+    </Router>
   );
 }
 
-function Child() {
-  // We can use the `useParams` hook here to access
-  // the dynamic pieces of the URL.
-  let { id } = useParams();
-
+function NoMatch() {
+  let location = useLocation();
   return (
     <div>
-      <h3>ID: {id}</h3>
+      <h3>
+        No match for <code>{location.pathname}</code>
+      </h3>
     </div>
   );
 }

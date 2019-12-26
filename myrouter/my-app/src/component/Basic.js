@@ -6,7 +6,7 @@ import {
   Link
 } from "react-router-dom";
 
-export default function App() {
+export default function Basic() {
   return (
     <Router>
       <div>
