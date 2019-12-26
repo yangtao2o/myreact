@@ -4,14 +4,13 @@ import {
   Switch,
   NavLink,
   Route,
-  useLocation,
-  Redirect,
-  useParams
+  useLocation
 } from "react-router-dom";
 import "./App.css";
 
 import Basic from "./component/Basic";
 import UrlParams from "./component/UrlParams";
+import Nesting from "./component/Nesting";
 
 function App() {
   return (
@@ -20,18 +19,20 @@ function App() {
         <header className="App-header">
           <ul className="nav-item">
             <li>
-              <NavLink to="/">
-                Basic
-              </NavLink>
+              <NavLink to="/">Basic</NavLink>
             </li>
             <li>
               <NavLink to="/url-params">Url-params</NavLink>
+            </li>
+            <li>
+              <NavLink to="/nesting">Nesting</NavLink>
             </li>
           </ul>
           <section className="nav-content">
             <Switch>
               <Route exact path="/" component={Basic} />
               <Route path="/url-params" component={UrlParams} />
+              <Route path="/nesting" component={Nesting} />
               <Route path="*">
                 <NoMatch />
               </Route>
@@ -46,11 +47,9 @@ function App() {
 function NoMatch() {
   let location = useLocation();
   return (
-    <div>
-      <h3>
-        No match for <code>{location.pathname}</code>
-      </h3>
-    </div>
+    <h3>
+      No match for <code>{location.pathname}</code>
+    </h3>
   );
 }
 

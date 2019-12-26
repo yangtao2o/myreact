@@ -32,6 +32,9 @@ function App() {
           <Switch>
             <Route path="/:id" children={<Child />} />
           </Switch>
+          <Route>
+            <RouteMatch />
+          </Route>
         </Router>
       </header>
     </div>

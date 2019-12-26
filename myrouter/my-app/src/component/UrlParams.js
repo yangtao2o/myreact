@@ -4,8 +4,9 @@ import {
   Switch,
   Link,
   Route,
-  useParams
 } from "react-router-dom";
+
+import GetParams from "./GetParams";
 
 export default function UrlParams() {
   return (
@@ -25,20 +26,8 @@ export default function UrlParams() {
         </li>
       </ul>
       <Switch>
-        <Route path="/:id" children={<Child />} />
+        <Route path="/:id" children={<GetParams />} />
       </Switch>
     </Router>
-  );
-}
-
-function Child() {
-  // We can use the `useParams` hook here to access
-  // the dynamic pieces of the URL.
-  let { id } = useParams();
-
-  return (
-    <div>
-      <h3>ID: {id}</h3>
-    </div>
   );
 }
