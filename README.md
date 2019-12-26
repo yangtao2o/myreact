@@ -1,13 +1,5 @@
 # 学习 React 的一些记录日志
 
-#### 目录
-
-- [Document](#document)
-- [Video Course](#video-corse)
-- [Learning Materials](#learning-materials)
-- [My Learning](#my-learning)
-- [My Project](#my-project)
-
 ## Document
 
 - [React 官方文档](https://zh-hans.reactjs.org/docs/getting-started.html)
@@ -25,30 +17,34 @@
 
 ### 初级
 
-- [x] [基于实例的 react16 傻瓜课程](https://www.imooc.com/learn/1045) --- 用一系列有趣的、简洁明快的实例由浅入深的阐述了 React 的特色，概念和基本使用
-- [x] [react16.4 快速上手](https://www.imooc.com/learn/1023) --- 通过 Todolist 功能的实现，给大家讲解了 React 组件间的通信方式
+- [基于实例的 react16 傻瓜课程](https://www.imooc.com/learn/1045) --- 用一系列有趣的、简洁明快的实例由浅入深的阐述了 React 的特色，概念和基本使用
+- [react16.4 快速上手](https://www.imooc.com/learn/1023) --- 通过 Todolist 功能的实现，给大家讲解了 React 组件间的通信方式
 
 ### 中级
 
-- [ ] [react 16 实现订单列表及评价功能](https://www.imooc.com/learn/1061) --- 介绍了从项目创建、到组件划分、再到组件及页面逻辑实现的开发流程
-- [ ] [react 组件](https://www.imooc.com/learn/944) --- 比较详细地讲解组件和生命周期
+- [react 16 实现订单列表及评价功能](https://www.imooc.com/learn/1061) --- 介绍了从项目创建、到组件划分、再到组件及页面逻辑实现的开发流程
+- [react 组件](https://www.imooc.com/learn/944) --- 比较详细地讲解组件和生命周期
 
 ### 高级
 
-- [ ] [react 响应用户输入](https://www.imooc.com/learn/953) --- 学习如何让数据逻辑与 UI 的结合使用、react 的事件处理机制以及 react 对 DOM 模型的操作
-- [ ] [react 知识点综合运用实例](https://www.imooc.com/learn/971) --- 综合实例操作
-- [ ] [react 高级教程之高阶组件](https://www.imooc.com/learn/1075) --- 高阶组件的应用：代理和继承
+- [react 响应用户输入](https://www.imooc.com/learn/953) --- 学习如何让数据逻辑与 UI 的结合使用、react 的事件处理机制以及 react 对 DOM 模型的操作
+- [react 知识点综合运用实例](https://www.imooc.com/learn/971) --- 综合实例操作
+- [react 高级教程之高阶组件](https://www.imooc.com/learn/1075) --- 高阶组件的应用：代理和继承
 
 ## Learning Materials
 
-- [x] [《react 入门教程》](https://hulufei.gitbooks.io/react-tutorial/content/index.html)
-- [x] [《react 入门实例教程》](http://www.ruanyifeng.com/blog/2015/03/react.html) --- 阮一峰
-- [ ] [《typescript 热门教程》](https://ts.xcatliu.com/)
-- [ ] [《6 周学习计划，攻克 javascript 难关(react/redux/es6 etc.)》](https://zhuanlan.zhihu.com/p/23412169)
+- [《react 入门教程》](https://hulufei.gitbooks.io/react-tutorial/content/index.html)
+- [《react 入门实例教程》](http://www.ruanyifeng.com/blog/2015/03/react.html) --- 阮一峰
+- [《typescript 热门教程》](https://ts.xcatliu.com/)
+- [《6 周学习计划，攻克 javascript 难关(react/redux/es6 etc.)》](https://zhuanlan.zhihu.com/p/23412169)
 
 ## My Learning
 
-### 入门学习 React 的几个例子
+### React 理论知识总结
+
+我的文档 [React 理论知识点](http://www.yangtao.site/vuepress/react/learn.html)，包含 React 的基础知识，以及 Router、Redux 等
+
+### React 入门 DEMO
 
 **[Demo 地址，戳我](./demo/)**
 
@@ -63,7 +59,11 @@
 1. [组件的生命周期](https://github.com/yangtao2o/myreact/blob/master/demo/09/index.html)
 1. [使用 Promise 获取 Github 的数据](https://istaotao.com/myreact/demo/10/)
 1. [Todo List](https://istaotao.com/myreact/demo/11/)
-1. [井字棋（Tic Tac Toe）](https://istaotao.com/myreact/demo/12/)
+1. [井字棋（Tic Tac Toe）](https://istaotao.com/myreact/demo/12/) - 官方文档练习 DEMO
+
+### Router
+
+### Redux
 
 ### Nextjs - 配合 React 打造静态化和服务端渲染应用
 
@@ -88,7 +88,7 @@ cd antd-course
 npm i
 npm run dev
 ```
-  
+
 ## My Project
 
 - [学习「井字游戏」](./product/01-ttt/)
