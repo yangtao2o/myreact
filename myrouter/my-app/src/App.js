@@ -11,6 +11,7 @@ import "./App.css";
 import Basic from "./component/Basic";
 import UrlParams from "./component/UrlParams";
 import Nesting from "./component/Nesting";
+import AuthWorkflow from "./component/AuthWorkflow";
 
 function App() {
   return (
@@ -27,12 +28,16 @@ function App() {
             <li>
               <NavLink to="/nesting">Nesting</NavLink>
             </li>
+            <li>
+              <NavLink to="/auth-workflow">AuthWorkflow</NavLink>
+            </li>
           </ul>
           <section className="nav-content">
             <Switch>
               <Route exact path="/" component={Basic} />
               <Route path="/url-params" component={UrlParams} />
               <Route path="/nesting" component={Nesting} />
+              <Route path="/auth-workflow" component={AuthWorkflow} />
               <Route path="*">
                 <NoMatch />
               </Route>
