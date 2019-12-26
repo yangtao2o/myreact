@@ -1,13 +1,6 @@
+import React from "react";
+import Father from './component/siblings';
 
-import React from 'react';
-import LikeButton from './component/likebutton';
- 
-function App() {
-  return (
-    <div>
-      <LikeButton />
-    </div>
-  )
+export default function App() {
+  return <Father />;
 }
-
-export default App;
