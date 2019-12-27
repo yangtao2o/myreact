@@ -89,7 +89,6 @@ function LoginPage() {
   let history = useHistory();
 
   let from = location.state || { from: { pathname: "/auth-workflow" } };
-  console.log(from, location.state)
   let login = () => {
     fakeAuth.authenticate(() => history.replace(from));
   };
