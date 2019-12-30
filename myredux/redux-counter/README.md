@@ -170,4 +170,4 @@ const actions = {
 
 Redux 的工作流程图，[阮一峰博客文章](http://www.ruanyifeng.com/blog/2016/09/redux_tutorial_part_one_basic_usages.html)摘录:
 
-[Redux-Flow](http://www.ruanyifeng.com/blogimg/asset/2016/bg2016091802.jpg)
+![Redux-Flow](http://www.ruanyifeng.com/blogimg/asset/2016/bg2016091802.jpg)
