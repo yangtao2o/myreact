@@ -1,5 +1,66 @@
 # 学习 React 的一些记录日志
 
+## My Learning
+
+### React 理论知识总结
+
+我的文档 [React 理论知识点](http://www.yangtao.site/vuepress/react/learn.html)，包含 React 的基础知识，以及 Router、Redux 等
+
+### React 入门 DEMO
+
+**[Demo 地址，戳我](./demo/)**
+
+1. [ReactDOM.render()](https://github.com/yangtao2o/myreact/blob/master/demo/01/index.html)
+1. [Use Array in JSX](https://github.com/yangtao2o/myreact/blob/master/demo/02/index.html)
+1. [组件](https://github.com/yangtao2o/myreact/blob/master/demo/03/index.html)
+1. [this.props.children](https://github.com/yangtao2o/myreact/blob/master/demo/04/index.html)
+1. [PropTypes](https://github.com/yangtao2o/myreact/blob/master/demo/05/index.html)
+1. [获取真实的 DOM 节点](https://github.com/yangtao2o/myreact/blob/master/demo/06/index.html)
+1. [this.state](https://github.com/yangtao2o/myreact/blob/master/demo/07/index.html)
+1. [表单](https://github.com/yangtao2o/myreact/blob/master/demo/08/index.html)
+1. [组件的生命周期](https://github.com/yangtao2o/myreact/blob/master/demo/09/index.html)
+1. [使用 Promise 获取 Github 的数据](https://istaotao.com/myreact/demo/10/)
+1. [Todo List](https://istaotao.com/myreact/demo/11/)
+1. [井字棋（Tic Tac Toe）](https://istaotao.com/myreact/demo/12/) - 官方文档练习 DEMO
+
+### Router
+
+- [React-Router](https://github.com/yangtao2o/myreact/tree/master/myrouter/my-app)
+
+### Redux
+
+- [计数器 Redux-Counter](https://github.com/yangtao2o/myreact/tree/master/myredux/redux-counter)
+- [计数器 React-Redux-Counter](https://github.com/yangtao2o/myreact/tree/master/myredux/react-redux-counter)
+
+### Nextjs - 配合 React 打造静态化和服务端渲染应用
+
+**[Nextjs](https://github.com/yangtao2o/myreact/tree/master/nextjs/01-hello-next)**
+
+- Demo1: 学习官方文档
+
+```bash
+cd nextjs/01-hello-next
+npm install
+npm run dev
+```
+
+### Antd - 基于 Ant Design 设计体系的 React UI 组件库
+
+[Ant Design of React](https://ant.design/docs/react/introduce-cn) -主要用于研发企业级中后台产品
+
+[Ant Design 实战教程](https://www.yuque.com/ant-design/course/intro)
+
+```bash
+cd antd-course
+npm i
+npm run dev
+```
+
+## My Project
+
+- [学习「井字游戏」](./product/01-ttt/)
+- [学习体验 Ant Design of React](./product/02-news-app/)
+
 ## Document
 
 - [React 官方文档](https://zh-hans.reactjs.org/docs/getting-started.html)
@@ -37,59 +98,3 @@
 - [《react 入门实例教程》](http://www.ruanyifeng.com/blog/2015/03/react.html) --- 阮一峰
 - [《typescript 热门教程》](https://ts.xcatliu.com/)
 - [《6 周学习计划，攻克 javascript 难关(react/redux/es6 etc.)》](https://zhuanlan.zhihu.com/p/23412169)
-
-## My Learning
-
-### React 理论知识总结
-
-我的文档 [React 理论知识点](http://www.yangtao.site/vuepress/react/learn.html)，包含 React 的基础知识，以及 Router、Redux 等
-
-### React 入门 DEMO
-
-**[Demo 地址，戳我](./demo/)**
-
-1. [ReactDOM.render()](https://github.com/yangtao2o/myreact/blob/master/demo/01/index.html)
-1. [Use Array in JSX](https://github.com/yangtao2o/myreact/blob/master/demo/02/index.html)
-1. [组件](https://github.com/yangtao2o/myreact/blob/master/demo/03/index.html)
-1. [this.props.children](https://github.com/yangtao2o/myreact/blob/master/demo/04/index.html)
-1. [PropTypes](https://github.com/yangtao2o/myreact/blob/master/demo/05/index.html)
-1. [获取真实的 DOM 节点](https://github.com/yangtao2o/myreact/blob/master/demo/06/index.html)
-1. [this.state](https://github.com/yangtao2o/myreact/blob/master/demo/07/index.html)
-1. [表单](https://github.com/yangtao2o/myreact/blob/master/demo/08/index.html)
-1. [组件的生命周期](https://github.com/yangtao2o/myreact/blob/master/demo/09/index.html)
-1. [使用 Promise 获取 Github 的数据](https://istaotao.com/myreact/demo/10/)
-1. [Todo List](https://istaotao.com/myreact/demo/11/)
-1. [井字棋（Tic Tac Toe）](https://istaotao.com/myreact/demo/12/) - 官方文档练习 DEMO
-
-### Router
-
-### Redux
-
-### Nextjs - 配合 React 打造静态化和服务端渲染应用
-
-**[Nextjs](https://github.com/yangtao2o/myreact/tree/master/nextjs/01-hello-next)**
-
-- Demo1: 学习官方文档
-
-```bash
-cd nextjs/01-hello-next
-npm install
-npm run dev
-```
-
-### Antd - 基于 Ant Design 设计体系的 React UI 组件库
-
-[Ant Design of React](https://ant.design/docs/react/introduce-cn) -主要用于研发企业级中后台产品
-
-[Ant Design 实战教程](https://www.yuque.com/ant-design/course/intro)
-
-```bash
-cd antd-course
-npm i
-npm run dev
-```
-
-## My Project
-
-- [学习「井字游戏」](./product/01-ttt/)
-- [学习体验 Ant Design of React](./product/02-news-app/)
