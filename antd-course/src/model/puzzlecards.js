@@ -1,3 +1,4 @@
+import { message } from 'antd'
 import request from '../util/request'
 
 const delay = millisecond => {
@@ -15,15 +16,19 @@ export default {
   effects: {
     *queryInitCards(_, sagaEffects) {
       const { call, put } = sagaEffects
-      const endPointURI = '/dev/posts/1'
+      // const endPointURI = '/dev/posts/1'
+      const endPointURI = '/dev/random_joke' // mock data
+      try {
+        const puzzle = yield call(request, endPointURI)
+        yield put({ type: 'addNewCard', payload: puzzle })
 
-      const puzzle = yield call(request, endPointURI)
-      yield put({ type: 'addNewCard', payload: puzzle })
+        yield call(delay, 3000)
 
-      yield call(delay, 3000)
-
-      const puzzle2 = yield call(request, endPointURI)
-      yield put({ type: 'addNewCard', payload: puzzle2 })
+        const puzzle2 = yield call(request, endPointURI)
+        yield put({ type: 'addNewCard', payload: puzzle2 })
+      } catch (e) {
+        message.error('数据获取失败')
+      }
     },
   },
   reducers: {

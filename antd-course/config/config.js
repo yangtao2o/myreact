@@ -6,6 +6,9 @@ export default {
       {
         antd: true,
         dva: true,
+        locale: {
+          enable: true,  // 开启mock
+        },
       },
     ],
   ],
