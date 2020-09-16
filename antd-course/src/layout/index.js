@@ -52,6 +52,22 @@ class BasicLayout extends Component {
                 <Link to="/dashboard/workplace">工作台</Link>
               </Menu.Item>
             </SubMenu>
+            <SubMenu
+              key="sub2"
+              title={
+                <span>
+                  <Icon type="form" />
+                  <span>右键菜单组件</span>
+                </span>
+              }
+            >
+              <Menu.Item key="5">
+                <Link to="/context-menu/1">React Contexify</Link>
+              </Menu.Item>
+              <Menu.Item key="6">
+                <Link to="/context-menu/2">React Contextmenu</Link>
+              </Menu.Item>
+            </SubMenu>
           </Menu>
         </Sider>
         <Layout>

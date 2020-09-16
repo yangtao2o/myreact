@@ -37,8 +37,15 @@ export default {
             { path: '/dashboard/workplace', component: 'Dashboard/Workplace' },
           ],
         },
+        {
+          path: '/context-menu',
+          routes: [
+            {path: '/context-menu/1', component: 'ContextMenu/Contexify'},
+            {path: '/context-menu/2', component: 'ContextMenu/Context'},
+          ]
+        }
       ],
-    },
+    }
   ],
   proxy: {
     '/dev': {

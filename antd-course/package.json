@@ -13,5 +13,9 @@
   "devDependencies": {
     "umi": "^2.12.6",
     "umi-plugin-react": "^1.14.9"
+  },
+  "dependencies": {
+    "react-contexify": "^4.1.1",
+    "react-contextmenu": "^2.14.0"
   }
 }
