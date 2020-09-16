@@ -2,39 +2,46 @@ export default {
   singular: true,
   plugins: [
     [
-      "umi-plugin-react",
+      'umi-plugin-react',
       {
         antd: true,
-        dva: true
-      }
-    ]
+        dva: true,
+      },
+    ],
   ],
   routes: [
     {
-      path: "/",
-      component: "../layout",
+      path: '/',
+      component: '../layout',
       routes: [
         {
-          path: "/",
-          component: "HelloWorld"
+          path: '/',
+          component: 'HelloWorld',
         },
         {
-          path: "/helloworld",
-          component: "HelloWorld"
+          path: '/helloworld',
+          component: 'HelloWorld',
         },
         {
-          path: "/puzzlecards",
-          component: "puzzlecards"
+          path: '/puzzlecards',
+          component: 'puzzlecards',
         },
         {
           path: '/dashboard',
           routes: [
             { path: '/dashboard/analysis', component: 'Dashboard/Analysis' },
             { path: '/dashboard/monitor', component: 'Dashboard/Monitor' },
-            { path: '/dashboard/workplace', component: 'Dashboard/Workplace' }
-          ]
+            { path: '/dashboard/workplace', component: 'Dashboard/Workplace' },
+          ],
         },
-      ]
-    }
-  ]
-};
+      ],
+    },
+  ],
+  proxy: {
+    '/dev': {
+      target: 'http://jsonplaceholder.typicode.com',
+      changeOrigin: true,
+      pathRewrite: { '^/dev': '' }, // 把 dev 重写掉
+    },
+  },
+}
