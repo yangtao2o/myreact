@@ -67,6 +67,9 @@ class BasicLayout extends Component {
               <Menu.Item key="6">
                 <Link to="/context-menu/2">React Contextmenu</Link>
               </Menu.Item>
+              <Menu.Item key="7">
+                <Link to="/context-menu/3">Contextmenu Nested</Link>
+              </Menu.Item>
             </SubMenu>
           </Menu>
         </Sider>

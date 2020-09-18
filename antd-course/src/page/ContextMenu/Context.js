@@ -1,35 +1,94 @@
 import React from 'react'
-import { Menu, Item, Separator, Submenu, MenuProvider } from 'react-contexify'
-import 'react-contexify/dist/ReactContexify.min.css'
+import { ContextMenu, MenuItem, ContextMenuTrigger } from 'react-contextmenu'
+import './react-contextmenu.css'
 
-const onClick = ({ event, props }) => console.log(event, props)
+const MENU_TYPE = 'SIMPLE'
 
-// 创建菜单内容
-const MyAwesomeMenu = () => (
-  <Menu id="menu_id">
-    <Item onClick={onClick}>Lorem</Item>
-    <Item onClick={onClick}>Ipsum</Item>
-    <Separator />
-    <Item disabled>Dolor</Item>
-    <Separator />
-    <Submenu label="Foobar">
-      <Item onClick={onClick}>Foo</Item>
-      <Item onClick={onClick}>Bar</Item>
-    </Submenu>
-  </Menu>
-)
+const targets = [
+  {
+    name: 'Banana',
+  },
+  {
+    name: 'Apple',
+  },
+  {
+    name: 'Papaya',
+  },
+  {
+    name: 'Mango',
+  },
+  {
+    name: 'Orange',
+  },
+  {
+    name: 'Pineapple',
+  },
+]
 
-class ContextMenu extends React.Component {
+function collect(props) {
+  return { name: props.name }
+}
+
+class Customization extends React.Component {
+  constructor(props) {
+    super(props)
+
+    this.state = { logs: [] }
+  }
+
+  handleClick = (e, data) => {
+    this.setState(({ logs }) => ({
+      logs: [`Clicked on ${data.name} menu ${data.item}`, ...logs],
+    }))
+  }
+
   render() {
     return (
       <div>
-        <MenuProvider id="menu_id" style={{ border: '1px solid purple', display: 'inline-block' }}>
-          右键点击
-        </MenuProvider>
-        <MyAwesomeMenu />
+        <h3>Custom Wrappers</h3>
+        <p>
+          This demo shows usage of customization. Instead of using <code>div</code>(s) by default, we are using{' '}
+          <code>tr</code>(s)
+        </p>
+        <table className="pure-table pure-table-bordered">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Fruit</th>
+            </tr>
+          </thead>
+          <tbody>
+            {targets.map((item, i) => (
+              <ContextMenuTrigger
+                renderTag="tr"
+                name={item.name}
+                id={MENU_TYPE}
+                holdToDisplay={1000}
+                key={i}
+                collect={collect}
+              >
+                <td>{i + 1}</td>
+                <td>{item.name}</td>
+              </ContextMenuTrigger>
+            ))}
+          </tbody>
+        </table>
+        <div>
+          {this.state.logs.map((log, i) => (
+            <p key={i}>{log}</p>
+          ))}
+        </div>
+        <ContextMenu id={MENU_TYPE}>
+          <MenuItem onClick={this.handleClick} data={{ item: 'item 1' }}>
+            Menu Item 1
+          </MenuItem>
+          <MenuItem onClick={this.handleClick} data={{ item: 'item 2' }}>
+            Menu Item 2
+          </MenuItem>
+        </ContextMenu>
       </div>
     )
   }
 }
 
-export default ContextMenu
+export default Customization

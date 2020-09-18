@@ -76,6 +76,11 @@ class ContextMenu extends React.Component {
             使用 MenuProvider
           </Button>
         </MenuProvider>
+        <MenuProvider id={menuId}>
+          <Button type="primary" size="large">
+            使用 MenuProvider
+          </Button>
+        </MenuProvider>
         <MyAwesomeMenu />
         <br />
         <Button onContextMenu={handleEvent} type="primary" size="large">

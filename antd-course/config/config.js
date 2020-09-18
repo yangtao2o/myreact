@@ -7,7 +7,7 @@ export default {
         antd: true,
         dva: true,
         locale: {
-          enable: true,  // 开启mock
+          enable: true, // 开启mock
         },
       },
     ],
@@ -40,12 +40,13 @@ export default {
         {
           path: '/context-menu',
           routes: [
-            {path: '/context-menu/1', component: 'ContextMenu/Contexify'},
-            {path: '/context-menu/2', component: 'ContextMenu/Context'},
-          ]
-        }
+            { path: '/context-menu/1', component: 'ContextMenu/Contexify' },
+            { path: '/context-menu/2', component: 'ContextMenu/Context' },
+            { path: '/context-menu/3', component: 'ContextMenu/Nested' },
+          ],
+        },
       ],
-    }
+    },
   ],
   proxy: {
     '/dev': {
