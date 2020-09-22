@@ -57,7 +57,7 @@
           const todo = items[index]
           items.splice(index, 1)
           todo.done = !todo.done
-          // todo.done ? items.unshift(todo) : items.push(todo);
+          todo.done ? items.unshift(todo) : items.push(todo)
           this.setState({ items })
         }
 
