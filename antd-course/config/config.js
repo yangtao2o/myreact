@@ -45,6 +45,13 @@ export default {
             { path: '/context-menu/3', component: 'ContextMenu/Nested' },
           ],
         },
+        {
+          path: '/list-menu',
+          routes: [
+            { path: '/list-menu/1', component: 'List/Infinite' },
+            { path: '/list-menu/2', component: 'List/Virtual' },
+          ],
+        },
       ],
     },
   ],

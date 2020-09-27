@@ -71,6 +71,21 @@ class BasicLayout extends Component {
                 <Link to="/context-menu/3">Contextmenu Nested</Link>
               </Menu.Item>
             </SubMenu>
+            <SubMenu
+              title={
+                <span>
+                  <Icon type="form" />
+                  <span>无限加载数据</span>
+                </span>
+              }
+            >
+              <Menu.Item>
+                <Link to="/list-menu/1">滚动加载</Link>
+              </Menu.Item>
+              <Menu.Item>
+                <Link to="/list-menu/2">虚拟加载</Link>
+              </Menu.Item>
+            </SubMenu>
           </Menu>
         </Sider>
         <Layout>
