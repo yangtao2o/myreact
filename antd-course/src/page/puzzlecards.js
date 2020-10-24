@@ -19,21 +19,30 @@ const mapDispatchToProps = dispatch => {
         payload: newCard
       };
       dispatch(action);
+    },
+    onDidMount: () => {
+      dispatch({
+        type: `${namespace}/queryInitCards`
+      })
     }
   };
 };
 
 @connect(mapStateToProps, mapDispatchToProps)
 export default class PuzzleCardsPage extends Component {
+  componentDidMount() {
+    // 异步获取数据
+    this.props.onDidMount();
+  }
   render() {
     return (
       <div>
         {this.props.cardList.map(card => {
           return (
             <Card key={card.id}>
-              <div>Q: {card.setup}</div>
+              <div>Q: {card.title}</div>
               <div>
-                <strong>A: {card.punchline}</strong>
+                <strong>A: {card.body}</strong>
               </div>
             </Card>
           );
@@ -42,9 +51,9 @@ export default class PuzzleCardsPage extends Component {
           <Button
             onClick={() =>
               this.props.onClickAdd({
-                setup:
+                title:
                   "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-                punchline: "here we use dva"
+                body: "here we use dva"
               })
             }
           >

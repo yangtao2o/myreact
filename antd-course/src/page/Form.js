@@ -1,21 +1,21 @@
-import { Component } from 'react';
+import { Component } from 'react'
 
-const MyInput = ({ onChange }) => <input onChange={onChange} />;
+const MyInput = ({ value, onChange }) => <input value={value} onChange={onChange} />
 
 class Demo extends Component {
   state = {
-    text: ""
-  };
+    text: '',
+  }
 
   onTextChange = event => {
     this.setState({
-      text: event.target.value
-    });
-  };
+      text: event.target.value,
+    })
+  }
 
   onTextReset = () => {
-    this.setState({ text: "" });
-  };
+    this.setState({ text: '' })
+  }
 
   render() {
     return (
@@ -28,4 +28,4 @@ class Demo extends Component {
   }
 }
 
-export default Demo;
+export default Demo
