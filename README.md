@@ -4,7 +4,7 @@
 
 ### React 理论知识总结
 
-我的文档 [React 理论知识点](http://www.yangtao.site/vuepress/react/learn.html)，包含 React 的基础知识，以及 Router、Redux 等
+我的文档 [React 理论知识点](https://www.yangtao.site/vuepress/react/learn.html)，包含 React 的基础知识，以及 Router、Redux 等
 
 ### React 入门 DEMO
 
