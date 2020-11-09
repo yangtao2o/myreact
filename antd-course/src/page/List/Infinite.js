@@ -5,7 +5,8 @@ import InfiniteScroll from 'react-infinite-scroller'
 
 import style from './list.css'
 
-const fakeDataUrl = 'https://randomuser.me/api/?results=5&inc=name,gender,email,nat&noinfo'
+const fakeDataUrl =
+  'https://randomuser.me/api/?results=5&inc=name,gender,email,nat&noinfo'
 
 class InfiniteListExample extends React.Component {
   state = {
@@ -35,6 +36,7 @@ class InfiniteListExample extends React.Component {
   }
 
   handleInfiniteOnLoad = () => {
+    console.log('load')
     let { data } = this.state
     this.setState({
       loading: true,
@@ -71,7 +73,9 @@ class InfiniteListExample extends React.Component {
             renderItem={item => (
               <List.Item key={item.id}>
                 <List.Item.Meta
-                  avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
+                  avatar={
+                    <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
+                  }
                   title={<a href="https://ant.design">{item.name.last}</a>}
                   description={item.email}
                 />
