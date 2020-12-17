@@ -1,6 +1,6 @@
-import React from "react";
-import Father from './component/siblings';
+import React from 'react'
+import UmiRequestToken from './component/UmiRequestToken'
 
 export default function App() {
-  return <Father />;
+  return <UmiRequestToken />
 }
