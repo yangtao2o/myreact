@@ -2,8 +2,9 @@ import { useState } from 'react'
 import './App.css'
 import DemoUseState from './components/DemoUseState'
 import DemoUseEffect from './components/DemoUseEffect'
+import DemoUseReducer from './components/DemoUseReducer'
+import DemoUseMemo from './components/DemoUseMemo'
 import Counter from './components/Counter'
-import DemoUseRef from './components/DemoUseRef'
 
 function App() {
   const [tab, setTab] = useState(true)
@@ -11,7 +12,8 @@ function App() {
   return (
     <div className="App">
       <Counter />
-      <DemoUseRef />
+      <DemoUseReducer />
+      <DemoUseMemo />
       <button type="button" onClick={() => setTab(!tab)}>
         切换
       </button>

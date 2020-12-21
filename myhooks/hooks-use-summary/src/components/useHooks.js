@@ -1,5 +1,4 @@
 import { useState, useEffect, useReducer, useRef } from 'react'
-import { debounce } from '@/utils/tools'
 
 const REQUEST_INIT = Symbol('REQUEST_INIT')
 const REQUEST_SUCCESS = Symbol('REQUEST_SUCCESS')
@@ -48,7 +47,7 @@ export function useRequest(cb, isRequest) {
     if (isRequest === -1) {
       return dispatch({ type: REQUEST_SUCCESS })
     }
-    const requestData = async (params) => {
+    const requestData = async params => {
       dispatch({ type: REQUEST_INIT })
       try {
         const res = await cb(params)
@@ -70,28 +69,28 @@ export function useRequest(cb, isRequest) {
   }, [isUpdate, param])
 
   const isUpdateHandle = () => setUpdate(!isUpdate)
-  const onUpdateHandle = (param) => setParam(param)
+  const onUpdateHandle = param => setParam(param)
 
   return { ...state, isUpdateHandle, onUpdateHandle }
 }
 
 // 使用 Debounce 防抖钩子函数
-export function useDebounce(cb, delay = 600, immediate = true) {
-  // 注：使用了 useRef 缓存了回调函数，所以变更状态无效
-  const ref = useRef(null)
+// export function useDebounce(cb, delay = 600, immediate = true) {
+//   // 注：使用了 useRef 缓存了回调函数，所以变更状态无效
+//   const ref = useRef(null)
 
-  if (!ref.current && typeof cb === 'function') {
-    ref.current = debounce(cb, delay, immediate)
-  }
+//   if (!ref.current && typeof cb === 'function') {
+//     ref.current = debounce(cb, delay, immediate)
+//   }
 
-  return ref.current
-}
+//   return ref.current
+// }
 
 // 获取上一轮的 props 或 state
 export function usePrevious(value) {
   const ref = useRef()
   useEffect(() => {
     ref.current = value
-  })
+  }, [value])
   return ref.current
 }
