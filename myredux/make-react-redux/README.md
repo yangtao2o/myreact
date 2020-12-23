@@ -23,38 +23,48 @@ export const ThemeContext = React.createContext()
 
 ```js
 import React, { Component } from 'react'
-import { ThemeContext } from './theme-context'
+import { connect } from './../react-redux'
 
-export const connect = mapStateToProps => WrappedComponent => {
-  class Connect extends Component {
-    static contextType = ThemeContext
-    constructor(props) {
-      super(props)
-      this.state = {
-        allProps: {},
-      }
-    }
-
-    componentDidMount() {
-      const value = this.context
-      this.updateProps()
-      value.subscribe(() => this.updateProps())
-    }
-
-    updateProps() {
-      const value = this.context
-      const stateProps = mapStateToProps(value.getState(), this.props)
-      this.setState({
-        allProps: { ...stateProps, ...this.props },
-      })
-    }
-
-    render() {
-      return <WrappedComponent {...this.state.allProps} />
-    }
+class ThemeSwitch extends Component {
+  handleClick(e) {
+    const color = e.target.value
+    this.props.onSwitchColor(color)
   }
-  return Connect
+
+  render() {
+    const { color } = this.props
+    return (
+      <div>
+        <button
+          style={{ color }}
+          onClick={e => this.handleClick(e)}
+          value="red"
+        >
+          Red
+        </button>
+        <button
+          style={{ color }}
+          onClick={e => this.handleClick(e)}
+          value="blue"
+        >
+          Blue
+        </button>
+      </div>
+    )
+  }
 }
+
+const mapStateToProps = state => ({
+  color: state.themeColor,
+})
+
+const mapDispatchToProps = dispatch => ({
+  onSwitchColor: color => {
+    dispatch({ type: 'CHANGE_COLOR', themeColor: color })
+  },
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(ThemeSwitch)
 ```
 
 ## 参考资料

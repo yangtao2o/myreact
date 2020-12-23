@@ -1,7 +1,10 @@
 import React, { Component } from 'react'
 import { ThemeContext } from './theme-context'
 
-export const connect = mapStateToProps => WrappedComponent => {
+export const connect = (
+  mapStateToProps,
+  mapDispatchToProps
+) => WrappedComponent => {
   class Connect extends Component {
     static contextType = ThemeContext
     constructor(props) {
@@ -19,9 +22,15 @@ export const connect = mapStateToProps => WrappedComponent => {
 
     updateProps() {
       const value = this.context
-      const stateProps = mapStateToProps(value.getState(), this.props)
+      const stateProps = mapStateToProps
+        ? mapStateToProps(value.getState(), this.props)
+        : {}
+      const dispatchProps = mapDispatchToProps
+        ? mapDispatchToProps(value.dispatch, this.props)
+        : {}
+
       this.setState({
-        allProps: { ...stateProps, ...this.props },
+        allProps: { ...stateProps, ...dispatchProps, ...this.props },
       })
     }
 
