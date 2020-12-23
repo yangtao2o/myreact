@@ -23,12 +23,18 @@
 1. [Todo List](https://istaotao.com/myreact/demo/11/)
 1. [井字棋（Tic Tac Toe）](https://istaotao.com/myreact/demo/12/) - 官方文档练习 DEMO
 
+### React Hooks
+
+- [React Hooks 使用总结](https://github.com/yangtao2o/myreact/tree/master/myhooks/hooks-use-summary)
+
 ### Router
 
 - [React-Router](https://github.com/yangtao2o/myreact/tree/master/myrouter/my-app)
 
 ### Redux
 
+- [Redux 使用总结](https://github.com/yangtao2o/myreact/tree/master/myredux/make-redux)
+- [动手实现 React-redux 练习](https://github.com/yangtao2o/myreact/tree/master/myredux/make-react-redux)
 - [计数器 Redux-Counter](https://github.com/yangtao2o/myreact/tree/master/myredux/redux-counter)
 - [计数器 React-Redux-Counter](https://github.com/yangtao2o/myreact/tree/master/myredux/react-redux-counter)
 
