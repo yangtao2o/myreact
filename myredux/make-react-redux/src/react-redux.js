@@ -1,27 +1,3 @@
-# 动手实现 React-redux 练习
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `yarn start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-## connect 实现
-
-theme-context 文件：
-
-```js
-import React from 'react'
-export const ThemeContext = React.createContext()
-```
-
-```js
 import React, { Component } from 'react'
 import { ThemeContext } from './theme-context'
 
@@ -55,8 +31,3 @@ export const connect = mapStateToProps => WrappedComponent => {
   }
   return Connect
 }
-```
-
-## 参考资料
-
-- [动手实现 React-redux（一）：初始化工程](http://huziketang.mangojuice.top/books/react/lesson36)

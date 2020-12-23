@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { ThemeContext } from './../theme-context'
+import { connect } from './../react-redux'
 
 class ThemeSwitch extends Component {
   static contextType = ThemeContext
@@ -36,7 +37,7 @@ class ThemeSwitch extends Component {
   }
 
   render() {
-    const { color } = this.state
+    const { color } = this.props
     return (
       <div>
         <button
@@ -58,4 +59,8 @@ class ThemeSwitch extends Component {
   }
 }
 
-export default ThemeSwitch
+const mapStateToProps = state => ({
+  color: state.themeColor,
+})
+
+export default connect(mapStateToProps)(ThemeSwitch)
