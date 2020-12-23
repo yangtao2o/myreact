@@ -12,59 +12,80 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
-## connect 实现
-
-theme-context 文件：
-
-```js
-import React from 'react'
-export const ThemeContext = React.createContext()
-```
+## Provider 实现
 
 ```js
 import React, { Component } from 'react'
-import { connect } from './../react-redux'
 
-class ThemeSwitch extends Component {
-  handleClick(e) {
-    const color = e.target.value
-    this.props.onSwitchColor(color)
-  }
+const ThemeContext = React.createContext()
 
+class Provider extends Component {
   render() {
-    const { color } = this.props
     return (
-      <div>
-        <button
-          style={{ color }}
-          onClick={e => this.handleClick(e)}
-          value="red"
-        >
-          Red
-        </button>
-        <button
-          style={{ color }}
-          onClick={e => this.handleClick(e)}
-          value="blue"
-        >
-          Blue
-        </button>
-      </div>
+      <ThemeContext.Provider value={this.props.store}>
+        {this.props.children}
+      </ThemeContext.Provider>
     )
   }
 }
+```
 
-const mapStateToProps = state => ({
-  color: state.themeColor,
-})
+## connect 实现
 
-const mapDispatchToProps = dispatch => ({
-  onSwitchColor: color => {
-    dispatch({ type: 'CHANGE_COLOR', themeColor: color })
-  },
-})
+```js
+const connect = (mapStateToProps, mapDispatchToProps) => WrappedComponent => {
+  class Connect extends Component {
+    static contextType = ThemeContext
+    constructor(props) {
+      super(props)
+      this.state = {
+        allProps: {},
+      }
+    }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ThemeSwitch)
+    componentDidMount() {
+      const value = this.context
+      this.updateProps()
+      value.subscribe(() => this.updateProps())
+    }
+
+    updateProps() {
+      const value = this.context
+      const stateProps = mapStateToProps
+        ? mapStateToProps(value.getState(), this.props)
+        : {}
+      const dispatchProps = mapDispatchToProps
+        ? mapDispatchToProps(value.dispatch, this.props)
+        : {}
+
+      this.setState({
+        allProps: { ...stateProps, ...dispatchProps, ...this.props },
+      })
+    }
+
+    render() {
+      return <WrappedComponent {...this.state.allProps} />
+    }
+  }
+  return Connect
+}
+```
+
+## 使用
+
+```js
+import React from 'react'
+import ReactDOM from 'react-dom'
+import store from './store'
+import { Provider } from './react-redux'
+import App from './App'
+
+ReactDOM.render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById('root')
+)
 ```
 
 ## 参考资料

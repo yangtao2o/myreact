@@ -1,10 +1,18 @@
 import React, { Component } from 'react'
-import { ThemeContext } from './theme-context'
 
-export const connect = (
-  mapStateToProps,
-  mapDispatchToProps
-) => WrappedComponent => {
+const ThemeContext = React.createContext()
+
+class Provider extends Component {
+  render() {
+    return (
+      <ThemeContext.Provider value={this.props.store}>
+        {this.props.children}
+      </ThemeContext.Provider>
+    )
+  }
+}
+
+const connect = (mapStateToProps, mapDispatchToProps) => WrappedComponent => {
   class Connect extends Component {
     static contextType = ThemeContext
     constructor(props) {
@@ -40,3 +48,5 @@ export const connect = (
   }
   return Connect
 }
+
+export { Provider, connect }
