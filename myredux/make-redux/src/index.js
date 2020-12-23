@@ -1,13 +1,4 @@
-const appState = {
-  title: {
-    text: 'React.js 小书',
-    color: 'red',
-  },
-  content: {
-    text: 'React.js 小书内容',
-    color: 'blue',
-  },
-}
+import './counter'
 
 function reducer(state, action) {
   if (!state) {

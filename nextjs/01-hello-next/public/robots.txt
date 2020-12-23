@@ -1,0 +1,2 @@
+User-agent: *
+Disallow: https://www.zhixi.com/space?page=*
