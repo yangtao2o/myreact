@@ -1,16 +1,22 @@
-import React from "react";
-import logo from "./logo.svg";
-import "./App.css";
-import Counter from "./components/counter";
+import React from 'react'
+import './App.css'
+import { AppContext } from './context'
+import Counter from './components/counter'
+import Contexter from './components/contexter'
+
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+    <AppContext.Provider
+      value={{
+        username: 'Taotao'
+      }}
+    >
+      <div className="App">
         <Counter />
-      </header>
-    </div>
-  );
+        <Contexter />
+      </div>
+    </AppContext.Provider>
+  )
 }
 
-export default App;
+export default App
