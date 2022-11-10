@@ -21,7 +21,7 @@
     "react-component-export-image": "^1.0.4",
     "react-dom": "^16.8.6",
     "react-infinite-scroller": "^1.2.4",
-    "react-scripts": "3.0.1",
+    "react-scripts": "5.0.1",
     "react-svg": "^11.2.1",
     "svg-to-pdfkit": "^0.1.8",
     "svg2pdf.js": "^2.1.0",
